@@ -53,11 +53,11 @@ const Navbar = () => {
         : "bg-transparent py-4"
     )}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/">
-          <a className="text-primary font-bold text-2xl flex items-center glow-text">
+        <div className="text-primary font-bold text-2xl flex items-center glow-text">
+          <Link href="/">
             <span className="mr-1 text-3xl">⚡</span>upscalable
-          </a>
-        </Link>
+          </Link>
+        </div>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">

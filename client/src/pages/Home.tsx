@@ -338,6 +338,146 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Features Section */}
+      <section id="features" className="py-24 relative overflow-hidden bg-gradient-to-b from-background to-secondary/20">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="absolute top-1/3 right-[-10%] w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-[-5%] w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col items-center mb-16">
+            <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-4">PLATFORM FEATURES</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+              Cutting-Edge Marketing Tools
+            </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-accent rounded-full mb-6"></div>
+            <p className="text-lg text-foreground/70 max-w-3xl mx-auto text-center">
+              Our platform provides advanced marketing features designed to help your business grow in the digital landscape of 2025.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Feature Image 1 */}
+            <div className="order-2 lg:order-1">
+              <div className="relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
+                <div className="relative bg-card rounded-2xl overflow-hidden shadow-xl">
+                  <img 
+                    src="/attached_assets/C96F4D72-EEE8-4EDD-8B67-241D6494264E_1_105_c.jpeg" 
+                    alt="AI-Powered Marketing Dashboard" 
+                    className="w-full h-auto"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -right-4 bg-primary text-white px-4 py-2 rounded-lg shadow-lg text-sm">
+                  <p className="font-semibold">Intelligent Analytics</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Feature Description 1 */}
+            <div className="order-1 lg:order-2">
+              <div className="space-y-6">
+                <div className="inline-flex items-center space-x-2">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <ChartLine className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Real-time Analytics Dashboard</h3>
+                </div>
+                
+                <p className="text-foreground/70 text-lg leading-relaxed">
+                  Our AI-powered analytics platform provides real-time insights into your marketing campaigns, 
+                  customer behavior, and business performance. Track KPIs, identify trends, and make data-driven 
+                  decisions with our intuitive visualization tools.
+                </p>
+                
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <div className="mr-2 mt-1 text-primary">✓</div>
+                    <p>Customizable dashboards with drag-and-drop interface</p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mr-2 mt-1 text-primary">✓</div>
+                    <p>Predictive analytics to forecast future performance</p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mr-2 mt-1 text-primary">✓</div>
+                    <p>Automated reporting and insights generation</p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mr-2 mt-1 text-primary">✓</div>
+                    <p>Competitive intelligence and market trend analysis</p>
+                  </li>
+                </ul>
+                
+                <Button className="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-light transition-all duration-300 glow-button">
+                  <span>Explore Analytics Features</span>
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+            
+            {/* Feature Description 2 */}
+            <div className="order-3">
+              <div className="space-y-6">
+                <div className="inline-flex items-center space-x-2">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Zap className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Automated Marketing Campaigns</h3>
+                </div>
+                
+                <p className="text-foreground/70 text-lg leading-relaxed">
+                  Leverage our AI-driven campaign management system to automate your marketing efforts across multiple 
+                  channels. Our platform optimizes campaign performance in real-time, ensuring maximum ROI on your marketing spend.
+                </p>
+                
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <div className="mr-2 mt-1 text-primary">✓</div>
+                    <p>Multi-channel campaign orchestration and scheduling</p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mr-2 mt-1 text-primary">✓</div>
+                    <p>AI-powered audience segmentation and targeting</p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mr-2 mt-1 text-primary">✓</div>
+                    <p>Dynamic content personalization at scale</p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mr-2 mt-1 text-primary">✓</div>
+                    <p>Automated A/B testing and performance optimization</p>
+                  </li>
+                </ul>
+                
+                <Button className="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-light transition-all duration-300 glow-button">
+                  <span>Discover Campaign Tools</span>
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+            
+            {/* Feature Image 2 */}
+            <div className="order-4">
+              <div className="relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
+                <div className="relative bg-card rounded-2xl overflow-hidden shadow-xl">
+                  <img 
+                    src="/attached_assets/A04425B8-9A67-4E83-BA7C-296CED2DAE7E_1_105_c.jpeg" 
+                    alt="Automated Marketing Campaign Dashboard" 
+                    className="w-full h-auto"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -left-4 bg-accent text-white px-4 py-2 rounded-lg shadow-lg text-sm">
+                  <p className="font-semibold">Smart Automation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section id="process" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
