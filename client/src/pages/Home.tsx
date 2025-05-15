@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionItem } from "@/components/ui/accordion-custom";
-import { ChartLine, BarChart3, Users, Zap, Shield, Clock } from "lucide-react";
+import { ChartLine, BarChart3, Users, Zap, Shield, Clock, ChevronRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -161,116 +161,178 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Growth Services</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We offer end-to-end solutions to help your business reach new heights through strategic planning and flawless execution.
+      <section id="services" className="py-24 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-1/3 left-[-10%] w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-[-5%] w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col items-center mb-16">
+            <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-4">SERVICES</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+              Our Growth Acceleration Services
+            </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-accent rounded-full mb-6"></div>
+            <p className="text-lg text-foreground/70 max-w-3xl mx-auto text-center">
+              We offer cutting-edge solutions powered by AI and data analytics to help your business achieve unprecedented growth in today's digital landscape.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Service Card 1 */}
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="rounded-full bg-blue-100 w-16 h-16 flex items-center justify-center mb-6">
-                <ChartLine className="h-8 w-8 text-navy" />
+            {/* Service Card 1 - Growth Strategy */}
+            <div className="group hover-card glass-card rounded-xl p-1">
+              <div className="bg-card rounded-lg p-8 h-full">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
+                      <ChartLine className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <span className="text-sm font-medium text-foreground/50">01</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">AI-Powered Growth Strategy</h3>
+                <p className="text-foreground/70 mb-6">
+                  Predictive analytics and AI-driven roadmaps that align with your business goals and market conditions to achieve sustainable growth.
+                </p>
+                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
+                  <span className="mr-2">Explore Service</span>
+                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <ChevronRight className="h-3 w-3 text-primary" />
+                  </div>
+                </a>
               </div>
-              <h3 className="text-xl font-bold mb-3">Growth Strategy</h3>
-              <p className="text-gray-600 mb-6">
-                Custom roadmaps that align with your business goals and market conditions to achieve predictable growth.
-              </p>
-              <a href="#" className="text-navy font-medium hover:text-[#1e293b] transition-colors inline-flex items-center">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
             </div>
 
-            {/* Service Card 2 */}
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="rounded-full bg-blue-100 w-16 h-16 flex items-center justify-center mb-6">
-                <BarChart3 className="h-8 w-8 text-navy" />
+            {/* Service Card 2 - Marketing Optimization */}
+            <div className="group hover-card glass-card rounded-xl p-1">
+              <div className="bg-card rounded-lg p-8 h-full">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
+                      <BarChart3 className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <span className="text-sm font-medium text-foreground/50">02</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Neural Marketing Optimization</h3>
+                <p className="text-foreground/70 mb-6">
+                  Machine learning algorithms that optimize campaigns in real-time, driving qualified leads with unprecedented conversion rates.
+                </p>
+                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
+                  <span className="mr-2">Explore Service</span>
+                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <ChevronRight className="h-3 w-3 text-primary" />
+                  </div>
+                </a>
               </div>
-              <h3 className="text-xl font-bold mb-3">Marketing Optimization</h3>
-              <p className="text-gray-600 mb-6">
-                Data-driven marketing campaigns that drive qualified leads and maximize return on ad spend.
-              </p>
-              <a href="#" className="text-navy font-medium hover:text-[#1e293b] transition-colors inline-flex items-center">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
             </div>
 
-            {/* Service Card 3 */}
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="rounded-full bg-blue-100 w-16 h-16 flex items-center justify-center mb-6">
-                <Users className="h-8 w-8 text-navy" />
+            {/* Service Card 3 - Team Development */}
+            <div className="group hover-card glass-card rounded-xl p-1">
+              <div className="bg-card rounded-lg p-8 h-full">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
+                      <Users className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <span className="text-sm font-medium text-foreground/50">03</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Augmented Team Development</h3>
+                <p className="text-foreground/70 mb-6">
+                  Advanced talent management and AI-assisted team augmentation to build high-performance teams that execute growth strategies flawlessly.
+                </p>
+                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
+                  <span className="mr-2">Explore Service</span>
+                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <ChevronRight className="h-3 w-3 text-primary" />
+                  </div>
+                </a>
               </div>
-              <h3 className="text-xl font-bold mb-3">Team Development</h3>
-              <p className="text-gray-600 mb-6">
-                Build high-performance teams that can execute on your growth plans and scale your operations effectively.
-              </p>
-              <a href="#" className="text-navy font-medium hover:text-[#1e293b] transition-colors inline-flex items-center">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
             </div>
 
-            {/* Service Card 4 */}
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="rounded-full bg-blue-100 w-16 h-16 flex items-center justify-center mb-6">
-                <Zap className="h-8 w-8 text-navy" />
+            {/* Service Card 4 - Systems Implementation */}
+            <div className="group hover-card glass-card rounded-xl p-1">
+              <div className="bg-card rounded-lg p-8 h-full">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
+                      <Zap className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <span className="text-sm font-medium text-foreground/50">04</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Intelligent Systems Integration</h3>
+                <p className="text-foreground/70 mb-6">
+                  Implement autonomous systems with predictive capabilities that eliminate bottlenecks and scale operations efficiently.
+                </p>
+                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
+                  <span className="mr-2">Explore Service</span>
+                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <ChevronRight className="h-3 w-3 text-primary" />
+                  </div>
+                </a>
               </div>
-              <h3 className="text-xl font-bold mb-3">Systems Implementation</h3>
-              <p className="text-gray-600 mb-6">
-                Streamline operations with automated systems that eliminate bottlenecks and increase efficiency.
-              </p>
-              <a href="#" className="text-navy font-medium hover:text-[#1e293b] transition-colors inline-flex items-center">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
             </div>
 
-            {/* Service Card 5 */}
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="rounded-full bg-blue-100 w-16 h-16 flex items-center justify-center mb-6">
-                <Shield className="h-8 w-8 text-navy" />
+            {/* Service Card 5 - Revenue Optimization */}
+            <div className="group hover-card glass-card rounded-xl p-1">
+              <div className="bg-card rounded-lg p-8 h-full">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
+                      <Shield className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <span className="text-sm font-medium text-foreground/50">05</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Quantum Revenue Optimization</h3>
+                <p className="text-foreground/70 mb-6">
+                  Advanced analytics uncover hidden revenue opportunities and optimize pricing structures for maximum profitability.
+                </p>
+                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
+                  <span className="mr-2">Explore Service</span>
+                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <ChevronRight className="h-3 w-3 text-primary" />
+                  </div>
+                </a>
               </div>
-              <h3 className="text-xl font-bold mb-3">Revenue Optimization</h3>
-              <p className="text-gray-600 mb-6">
-                Identify and capitalize on hidden revenue opportunities in your business to increase profitability.
-              </p>
-              <a href="#" className="text-navy font-medium hover:text-[#1e293b] transition-colors inline-flex items-center">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
             </div>
 
-            {/* Service Card 6 */}
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="rounded-full bg-blue-100 w-16 h-16 flex items-center justify-center mb-6">
-                <Clock className="h-8 w-8 text-navy" />
+            {/* Service Card 6 - Executive Coaching */}
+            <div className="group hover-card glass-card rounded-xl p-1">
+              <div className="bg-card rounded-lg p-8 h-full">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
+                      <Clock className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <span className="text-sm font-medium text-foreground/50">06</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Strategic Executive Guidance</h3>
+                <p className="text-foreground/70 mb-6">
+                  Personalized leadership development with AI-enhanced feedback systems to help you evolve into a visionary business leader.
+                </p>
+                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
+                  <span className="mr-2">Explore Service</span>
+                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <ChevronRight className="h-3 w-3 text-primary" />
+                  </div>
+                </a>
               </div>
-              <h3 className="text-xl font-bold mb-3">Executive Coaching</h3>
-              <p className="text-gray-600 mb-6">
-                One-on-one guidance to help you navigate growth challenges and develop as a business leader.
-              </p>
-              <a href="#" className="text-navy font-medium hover:text-[#1e293b] transition-colors inline-flex items-center">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
