@@ -464,7 +464,7 @@ const Home = () => {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
                 <div className="relative bg-card rounded-2xl overflow-hidden shadow-xl">
                   <img 
-                    src="/attached_assets/A04425B8-9A67-4E83-BA7C-296CED2DAE7E_1_105_c.jpeg" 
+                    src="attached_assets/A04425B8-9A67-4E83-BA7C-296CED2DAE7E_1_105_c.jpeg" 
                     alt="Automated Marketing Campaign Dashboard" 
                     className="w-full h-auto"
                   />
