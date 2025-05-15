@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
+import { useTheme } from "@/components/ui/theme-provider";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,112 +47,111 @@ const Navbar = () => {
 
   return (
     <header className={cn(
-      "fixed w-full bg-white z-50",
-      isScrolled ? "shadow-md navbar-fixed" : "shadow-sm"
+      "fixed w-full z-50 transition-all duration-300",
+      isScrolled 
+        ? "navbar-fixed py-2" 
+        : "bg-transparent py-4"
     )}>
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/">
-          <a className="text-navy font-bold text-2xl">upscalable</a>
+          <a className="text-primary font-bold text-2xl flex items-center glow-text">
+            <span className="mr-1 text-3xl">⚡</span>upscalable
+          </a>
         </Link>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
-          <a 
-            href="#services" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('services')}}
-          >
-            Services
-          </a>
-          <a 
-            href="#process" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('process')}}
-          >
-            Our Process
-          </a>
-          <a 
-            href="#about" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('about')}}
-          >
-            About Us
-          </a>
-          <a 
-            href="#testimonials" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('testimonials')}}
-          >
-            Testimonials
-          </a>
-          <a 
-            href="#faq" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('faq')}}
-          >
-            FAQ
-          </a>
+          {[
+            { href: "#services", label: "Services" },
+            { href: "#process", label: "Our Process" },
+            { href: "#about", label: "About Us" },
+            { href: "#testimonials", label: "Testimonials" },
+            { href: "#faq", label: "FAQ" }
+          ].map((item) => (
+            <a 
+              key={item.href}
+              href={item.href} 
+              className="text-foreground hover:text-primary font-medium transition-colors relative group"
+              onClick={(e) => {e.preventDefault(); handleNavLinkClick(item.href.substring(1))}}
+            >
+              {item.label}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          ))}
         </nav>
         
-        <div className="hidden md:block">
-          <Button className="bg-navy text-white hover:bg-[#1e293b] transition-colors">
-            Book a Call
+        <div className="hidden md:flex items-center space-x-4">
+          <Button 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            variant="outline" 
+            size="icon" 
+            className="rounded-full w-9 h-9 border-primary/20"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <span className="text-yellow-400 text-xl">☀️</span>
+            ) : (
+              <span className="text-blue-900 text-xl">🌙</span>
+            )}
+          </Button>
+          
+          <Button className="bg-primary text-white hover:bg-primary-light glow-button rounded-full px-6 group">
+            <span>Book a Call</span> 
+            <ChevronRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>
         
         {/* Mobile menu button */}
-        <button 
-          className="md:hidden text-navy focus:outline-none" 
-          onClick={toggleMenu}
-          aria-label="Toggle mobile menu"
-        >
-          <Menu className="h-6 w-6" />
-        </button>
+        <div className="md:hidden flex items-center space-x-2">
+          <Button 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            variant="outline" 
+            size="icon" 
+            className="rounded-full w-9 h-9 border-primary/20"
+          >
+            {theme === 'dark' ? (
+              <span className="text-yellow-400 text-xl">☀️</span>
+            ) : (
+              <span className="text-blue-900 text-xl">🌙</span>
+            )}
+          </Button>
+          
+          <button 
+            className="text-foreground focus:outline-none" 
+            onClick={toggleMenu}
+            aria-label="Toggle mobile menu"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Navigation */}
       <div className={cn(
-        "md:hidden bg-white w-full py-4 px-4 shadow-lg",
-        isOpen ? "block" : "hidden"
+        "md:hidden w-full py-6 px-4",
+        isOpen 
+          ? "glass-effect translate-y-0 opacity-100 transition-all duration-300 ease-out" 
+          : "translate-y-[-10px] opacity-0 pointer-events-none transition-all duration-200 ease-in"
       )}>
-        <nav className="flex flex-col space-y-4">
-          <a 
-            href="#services" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('services')}}
-          >
-            Services
-          </a>
-          <a 
-            href="#process" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('process')}}
-          >
-            Our Process
-          </a>
-          <a 
-            href="#about" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('about')}}
-          >
-            About Us
-          </a>
-          <a 
-            href="#testimonials" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('testimonials')}}
-          >
-            Testimonials
-          </a>
-          <a 
-            href="#faq" 
-            className="text-navy hover:text-navy/70 font-medium transition-colors"
-            onClick={(e) => {e.preventDefault(); handleNavLinkClick('faq')}}
-          >
-            FAQ
-          </a>
-          <Button className="bg-navy text-white px-5 py-2 rounded-md font-medium hover:bg-[#1e293b] transition-colors w-full">
-            Book a Call
+        <nav className="flex flex-col space-y-6 items-center">
+          {[
+            { href: "#services", label: "Services" },
+            { href: "#process", label: "Our Process" },
+            { href: "#about", label: "About Us" },
+            { href: "#testimonials", label: "Testimonials" },
+            { href: "#faq", label: "FAQ" }
+          ].map((item) => (
+            <a 
+              key={item.href}
+              href={item.href} 
+              className="text-foreground hover:text-primary font-medium text-lg transition-colors"
+              onClick={(e) => {e.preventDefault(); handleNavLinkClick(item.href.substring(1))}}
+            >
+              {item.label}
+            </a>
+          ))}
+          <Button className="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-primary-light transition-colors w-full glow-button mt-2">
+            Book a Call <ChevronRight className="w-4 h-4 ml-2" />
           </Button>
         </nav>
       </div>

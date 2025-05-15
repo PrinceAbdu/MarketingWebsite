@@ -51,48 +51,111 @@ const Home = () => {
   return (
     <div className="bg-white text-navy smooth-scroll">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                Scale Your Business With Expert Strategy & Execution
+      <section className="pt-36 pb-24 relative overflow-hidden">
+        {/* Background with animated gradient */}
+        <div className="absolute inset-0 animated-gradient opacity-95 z-0"></div>
+        
+        {/* Decorative geometric shapes */}
+        <div className="absolute top-1/4 right-[5%] w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-[10%] w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5 z-0"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center">
+            <div className="lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left">
+              <div className="inline-block mb-2 bg-primary/10 px-4 py-1 rounded-full">
+                <span className="text-primary font-medium text-sm">BUSINESS GROWTH EXPERTS • EST 2025</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+                Scale Your Business With Intelligent Strategy
               </h1>
-              <p className="text-lg mb-8 text-gray-300">
-                We help ambitious business owners achieve sustainable growth through proven systems, frameworks, and strategies that deliver results.
+              <p className="text-lg md:text-xl mb-8 text-foreground/80 max-w-xl mx-auto lg:mx-0">
+                We help ambitious business owners achieve sustainable growth through AI-powered systems, frameworks, and strategies that deliver measurable results.
               </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button className="bg-white text-navy px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">
-                  Book a Free Strategy Call
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                <Button className="bg-primary text-white px-8 py-6 rounded-full font-semibold hover:bg-primary-light transition-all duration-300 glow-button text-lg">
+                  <span>Book Free Strategy Call</span>
+                  <span className="ml-2">→</span>
                 </Button>
-                <Button variant="outline" className="border border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white/10 transition-colors">
-                  Learn More
+                <Button variant="outline" className="gradient-border px-8 py-6 rounded-full font-semibold hover:bg-primary/5 transition-all duration-300 text-lg">
+                  Learn About Our Process
                 </Button>
               </div>
+              
+              {/* Stats or social proof */}
+              <div className="mt-12 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-primary mb-1">500+</p>
+                  <p className="text-sm text-foreground/70">Clients</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-primary mb-1">97%</p>
+                  <p className="text-sm text-foreground/70">Success Rate</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-primary mb-1">24/7</p>
+                  <p className="text-sm text-foreground/70">Support</p>
+                </div>
+              </div>
             </div>
-            <div className="md:w-1/2">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                alt="Business professionals in a meeting" 
-                className="rounded-lg shadow-xl w-full" 
-              />
+            
+            <div className="lg:w-1/2 relative">
+              {/* Main image with float animation */}
+              <div className="relative z-10 float-element">
+                <img 
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                  alt="Business growth strategy session" 
+                  className="rounded-2xl shadow-2xl w-full object-cover glass-card"
+                />
+                <div className="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-4 rounded-lg shadow-lg">
+                  <p className="text-sm font-semibold">Average Growth</p>
+                  <p className="text-2xl font-bold">+147%</p>
+                </div>
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -top-8 -left-8 w-20 h-20 bg-accent rounded-xl opacity-20 blur-sm"></div>
+              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-primary rounded-full opacity-10 blur-md"></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Client Logos Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-center text-lg text-gray-500 mb-8">Trusted by forward-thinking companies</h2>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-70">
+      <section className="py-16 relative overflow-hidden">
+        {/* Subtle patterned background */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col items-center mb-12">
+            <span className="text-xs font-semibold tracking-wider text-primary uppercase mb-2">Innovation Partners</span>
+            <h2 className="text-center text-2xl font-bold text-foreground mb-2">Trusted by Industry Leaders</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
             {[1, 2, 3, 4, 5].map((num) => (
-              <div key={num} className="w-32 grayscale">
-                <div className="h-12 bg-gray-300 rounded flex items-center justify-center">
-                  <span className="text-gray-600 font-medium">LOGO {num}</span>
+              <div key={num} className="group relative">
+                <div className="w-full aspect-video glass-card rounded-xl flex items-center justify-center 
+                                p-4 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-primary/30">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl opacity-0 
+                                  group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r 
+                                 from-primary/80 to-accent/80 group-hover:from-primary group-hover:to-accent 
+                                 transition-all duration-300 relative z-10">
+                    LOGO {num}
+                  </div>
                 </div>
               </div>
             ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <p className="text-foreground/60 max-w-xl mx-auto">
+              Partnering with forward-thinking organizations to deliver measurable business growth and digital transformation since 2025.
+            </p>
           </div>
         </div>
       </section>

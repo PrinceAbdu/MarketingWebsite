@@ -4,58 +4,86 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Futuristic 2025 Color Palette */
+    --background: 240 50% 99%;
+    --foreground: 224 82% 6%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 224 82% 6%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222 47% 11%;
-    --primary-foreground: 210 40% 98%;
-    --primary-light: 220 36% 23%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --popover-foreground: 224 82% 6%;
+    
+    /* New primary color - Electric indigo */
+    --primary: 252 94% 57%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 252 90% 67%;
+    
+    /* New accent color - Vivid cyan */
+    --accent: 190 100% 50%;
+    --accent-foreground: 224 82% 6%;
+    
+    /* Secondary - Soft lavender */
+    --secondary: 250 95% 97%;
+    --secondary-foreground: 224 82% 10%;
+    
+    --muted: 240 20% 96%;
+    --muted-foreground: 240 10% 40%;
+    
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Subtle gradients */
+    --border: 240 30% 92%;
+    --input: 240 30% 94%;
+    --ring: 252 94% 57%;
+    --radius: 1rem;
 
     /* Custom colors */
-    --navy: 222 47% 11%;
-    --navy-light: 220 36% 23%;
+    --navy: 224 82% 16%;
+    --navy-light: 224 70% 25%;
+    --glow: 252 94% 57%;
+    --glass: 0 0% 100% / 0.8;
+    --gradient-start: 252 94% 57%;
+    --gradient-end: 190 100% 50%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 222 47% 11%;
-    --primary-foreground: 210 40% 98%;
-    --primary-light: 220 36% 23%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --background: 224 80% 3%;
+    --foreground: 0 0% 100%;
+    --card: 224 70% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 224 70% 5%;
+    --popover-foreground: 0 0% 100%;
+    
+    /* Electric indigo */
+    --primary: 252 94% 57%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 252 90% 67%;
+    
+    /* Vivid cyan */
+    --accent: 190 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Deep navy-purple */
+    --secondary: 250 30% 15%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 224 40% 12%;
+    --muted-foreground: 240 10% 70%;
+    
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 240 20% 20%;
+    --input: 240 20% 15%;
+    --ring: 252 94% 57%;
 
     /* Custom colors */
-    --navy: 222 47% 11%;
-    --navy-light: 220 36% 23%;
+    --navy: 224 60% 10%;
+    --navy-light: 224 50% 20%;
+    --glow: 252 94% 57%;
+    --glass: 224 80% 3% / 0.8;
+    --gradient-start: 252 94% 57%;
+    --gradient-end: 190 100% 50%;
   }
 }
 
@@ -77,16 +105,132 @@
   scroll-behavior: smooth;
 }
 
+/* Futuristic 2025 Design Elements */
+
+/* Glass morphism */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card {
+  @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg;
+}
+
+.dark .glass-card {
+  @apply bg-black/20 border-white/10;
+}
+
+/* Gradients */
+.gradient-border {
+  position: relative;
+  border-radius: inherit;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Modern Card Hover Effects */
+.hover-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Glow Effects */
+.glow-text {
+  text-shadow: 0 0 8px hsla(var(--glow), 0.6);
+}
+
+.glow-border {
+  box-shadow: 0 0 8px hsla(var(--glow), 0.4);
+}
+
+.glow-button {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.glow-button::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  z-index: -1;
+  filter: blur(14px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.glow-button:hover::after {
+  opacity: 0.7;
+}
+
+/* Animated Gradients */
+.animated-gradient {
+  background: linear-gradient(
+    -45deg, 
+    hsl(var(--gradient-start)), 
+    hsl(var(--gradient-end)), 
+    hsl(var(--gradient-start)/0.8)
+  );
+  background-size: 400% 400%;
+  animation: gradient-animation 8s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Testimonial card with enhanced hover */
 .testimonial-card {
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid hsla(var(--border));
 }
 
 .testimonial-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  border-color: hsla(var(--primary), 0.3);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+              0 8px 10px -6px rgba(0, 0, 0, 0.05),
+              0 0 15px hsla(var(--primary), 0.2);
 }
 
+/* Enhanced Navbar Animations */
 .navbar-fixed {
   animation: slideDown 0.5s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: hsla(var(--background), 0.8);
 }
 
 @keyframes slideDown {
@@ -98,12 +242,43 @@
   }
 }
 
+/* Floating Elements */
+.float-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Accordion enhancements */
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .accordion-content.open {
   max-height: 500px;
+}
+
+/* Subtle Parallax Effect */
+.parallax {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+/* Grid Pattern Background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, hsla(var(--foreground), 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, hsla(var(--foreground), 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
