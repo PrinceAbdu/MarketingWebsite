@@ -364,7 +364,7 @@ const Home = () => {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
                 <div className="relative bg-card rounded-2xl overflow-hidden shadow-xl">
                   <img 
-                    src="/attached_assets/C96F4D72-EEE8-4EDD-8B67-241D6494264E_1_105_c.jpeg" 
+                    src="attached_assets/C96F4D72-EEE8-4EDD-8B67-241D6494264E_1_105_c.jpeg" 
                     alt="AI-Powered Marketing Dashboard" 
                     className="w-full h-auto"
                   />
@@ -473,6 +473,96 @@ const Home = () => {
                   <p className="font-semibold">Smart Automation</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Options Section */}
+      <section id="service-options" className="py-24 relative overflow-hidden bg-gradient-to-r from-[#e6f7ff]/30 to-[#f8fff0]/30">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-10">
+            {/* Left Content */}
+            <div className="lg:w-1/2 space-y-8">
+              <div>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-[#4caf50]/20 text-[#4caf50] text-sm font-medium mb-4">
+                  From The Seed
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+                  The Plethora of our services include
+                </h2>
+                <p className="text-foreground/70 text-lg">
+                  Here are a few services that you require for that slingshot to reach the top. Get started on these services, and wait for results to follow.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6">
+                {/* Service 1 */}
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#e0f2fe] flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#0284c7]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Search Engine Optimization</h3>
+                  </div>
+                </div>
+                
+                {/* Service 2 */}
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#fef3c7] flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#d97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Influencer Marketing</h3>
+                  </div>
+                </div>
+                
+                {/* Service 3 */}
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#d8f3dc] flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#2d6a4f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">TikTok Marketing</h3>
+                  </div>
+                </div>
+                
+                {/* Service 4 */}
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#ffe2e2] flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#e63946]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Podcasts</h3>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <Button className="rounded-full px-8 py-6 bg-gradient-to-r from-[#ef6351] to-[#f38375] hover:opacity-90 transition-opacity text-white border-0 font-medium uppercase tracking-wider">
+                  Contact us
+                </Button>
+              </div>
+            </div>
+            
+            {/* Right Image */}
+            <div className="lg:w-1/2 flex justify-center">
+              <img 
+                src="attached_assets/image_1747348673399.png" 
+                alt="3D illustration of person analyzing growth data" 
+                className="max-w-full h-auto lg:max-w-lg xl:max-w-xl"
+              />
             </div>
           </div>
         </div>

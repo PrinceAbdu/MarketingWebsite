@@ -45,6 +45,16 @@ const Navbar = () => {
     }
   };
 
+  const navItems = [
+    { href: "#services", label: "Services" },
+    { href: "#features", label: "Features" },
+    { href: "#service-options", label: "Service Options" },
+    { href: "#process", label: "Our Process" },
+    { href: "#about", label: "About Us" },
+    { href: "#testimonials", label: "Testimonials" },
+    { href: "#faq", label: "FAQ" }
+  ];
+
   return (
     <header className={cn(
       "fixed w-full z-50 transition-all duration-300",
@@ -60,14 +70,8 @@ const Navbar = () => {
         </div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          {[
-            { href: "#services", label: "Services" },
-            { href: "#process", label: "Our Process" },
-            { href: "#about", label: "About Us" },
-            { href: "#testimonials", label: "Testimonials" },
-            { href: "#faq", label: "FAQ" }
-          ].map((item) => (
+        <nav className="hidden md:flex space-x-6">
+          {navItems.map((item) => (
             <a 
               key={item.href}
               href={item.href} 
@@ -134,13 +138,7 @@ const Navbar = () => {
           : "translate-y-[-10px] opacity-0 pointer-events-none transition-all duration-200 ease-in"
       )}>
         <nav className="flex flex-col space-y-6 items-center">
-          {[
-            { href: "#services", label: "Services" },
-            { href: "#process", label: "Our Process" },
-            { href: "#about", label: "About Us" },
-            { href: "#testimonials", label: "Testimonials" },
-            { href: "#faq", label: "FAQ" }
-          ].map((item) => (
+          {navItems.map((item) => (
             <a 
               key={item.href}
               href={item.href} 
