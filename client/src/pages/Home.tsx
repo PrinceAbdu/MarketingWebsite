@@ -806,6 +806,485 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Marketing ROI Calculator Section */}
+      <section id="roi-calculator" className="py-24 relative overflow-hidden bg-gradient-to-r from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+              Marketing ROI
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Calculate Your Marketing ROI</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Use our interactive calculator to estimate the return on investment for your next marketing campaign.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden gradient-border">
+              <div className="grid md:grid-cols-2">
+                {/* Calculator Controls */}
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-6 text-foreground">Campaign Details</h3>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground/70 mb-2">
+                        Marketing Budget
+                      </label>
+                      <div className="relative mt-1 rounded-md shadow-sm">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                          <span className="text-gray-500 sm:text-sm">$</span>
+                        </div>
+                        <input
+                          type="number"
+                          defaultValue="5000"
+                          min="100"
+                          step="100"
+                          className="pl-8 block w-full rounded-md border-gray-300 dark:border-gray-700 py-3 px-4 bg-white dark:bg-gray-900 text-foreground focus:ring-primary focus:border-primary"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-foreground/70 mb-2">
+                        Expected Conversion Rate (%)
+                      </label>
+                      <input
+                        type="range"
+                        min="0.1"
+                        max="10"
+                        step="0.1"
+                        defaultValue="2.5"
+                        className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-primary"
+                      />
+                      <div className="flex justify-between text-xs text-foreground/60 mt-1">
+                        <span>0.1%</span>
+                        <span>2.5%</span>
+                        <span>5%</span>
+                        <span>7.5%</span>
+                        <span>10%</span>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-foreground/70 mb-2">
+                        Average Sale Value
+                      </label>
+                      <div className="relative mt-1 rounded-md shadow-sm">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                          <span className="text-gray-500 sm:text-sm">$</span>
+                        </div>
+                        <input
+                          type="number"
+                          defaultValue="150"
+                          min="1"
+                          className="pl-8 block w-full rounded-md border-gray-300 dark:border-gray-700 py-3 px-4 bg-white dark:bg-gray-900 text-foreground focus:ring-primary focus:border-primary"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-foreground/70 mb-2">
+                        Marketing Channels
+                      </label>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="flex items-center">
+                          <input 
+                            id="seo" 
+                            type="checkbox" 
+                            defaultChecked
+                            className="w-4 h-4 text-primary focus:ring-primary rounded" 
+                          />
+                          <label htmlFor="seo" className="ml-2 text-sm text-foreground/80">SEO</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input 
+                            id="email" 
+                            type="checkbox" 
+                            defaultChecked
+                            className="w-4 h-4 text-primary focus:ring-primary rounded" 
+                          />
+                          <label htmlFor="email" className="ml-2 text-sm text-foreground/80">Email Marketing</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input 
+                            id="social" 
+                            type="checkbox" 
+                            defaultChecked
+                            className="w-4 h-4 text-primary focus:ring-primary rounded" 
+                          />
+                          <label htmlFor="social" className="ml-2 text-sm text-foreground/80">Social Media</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input 
+                            id="ppc" 
+                            type="checkbox" 
+                            className="w-4 h-4 text-primary focus:ring-primary rounded" 
+                          />
+                          <label htmlFor="ppc" className="ml-2 text-sm text-foreground/80">PPC Ads</label>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-foreground/70 mb-2">
+                        Campaign Duration
+                      </label>
+                      <select className="block w-full rounded-md border-gray-300 dark:border-gray-700 py-3 px-4 bg-white dark:bg-gray-900 text-foreground focus:ring-primary focus:border-primary">
+                        <option>1 month</option>
+                        <option selected>3 months</option>
+                        <option>6 months</option>
+                        <option>12 months</option>
+                      </select>
+                    </div>
+                    
+                    <Button className="w-full button-3d bg-primary hover:bg-primary/90 text-white">
+                      Calculate ROI
+                    </Button>
+                  </div>
+                </div>
+                
+                {/* Results Display */}
+                <div className="bg-gray-50 dark:bg-gray-900 p-8">
+                  <h3 className="text-xl font-bold mb-6 text-foreground">Projected Results</h3>
+                  
+                  <div className="space-y-6">
+                    {/* ROI Meter */}
+                    <div className="text-center mb-8">
+                      <div className="relative h-36 w-36 mx-auto">
+                        <svg viewBox="0 0 100 100" className="w-full h-full">
+                          {/* Background Circle */}
+                          <circle 
+                            cx="50" 
+                            cy="50" 
+                            r="45" 
+                            fill="none" 
+                            stroke="#e5e7eb" 
+                            strokeWidth="10" 
+                            className="dark:stroke-gray-700" 
+                          />
+                          {/* Progress Circle */}
+                          <circle 
+                            cx="50" 
+                            cy="50" 
+                            r="45" 
+                            fill="none" 
+                            stroke="url(#roiGradient)" 
+                            strokeWidth="10" 
+                            strokeDasharray="283" 
+                            strokeDashoffset="70" 
+                            strokeLinecap="round" 
+                          />
+                          {/* Gradient Definition */}
+                          <defs>
+                            <linearGradient id="roiGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" stopColor="hsl(var(--primary))" />
+                              <stop offset="100%" stopColor="hsl(var(--accent))" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center flex-col">
+                          <span className="text-3xl font-bold text-foreground">375%</span>
+                          <span className="text-sm text-foreground/70">ROI</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Key Metrics */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <p className="text-sm text-foreground/70 mb-1">Expected Revenue</p>
+                        <p className="text-xl font-bold text-foreground">$23,750</p>
+                      </div>
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <p className="text-sm text-foreground/70 mb-1">Net Profit</p>
+                        <p className="text-xl font-bold text-foreground">$18,750</p>
+                      </div>
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <p className="text-sm text-foreground/70 mb-1">Conversions</p>
+                        <p className="text-xl font-bold text-foreground">158</p>
+                      </div>
+                      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <p className="text-sm text-foreground/70 mb-1">Cost per Acquisition</p>
+                        <p className="text-xl font-bold text-foreground">$31.65</p>
+                      </div>
+                    </div>
+                    
+                    {/* Performance Chart */}
+                    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
+                      <h4 className="text-sm font-medium text-foreground/70 mb-4">Projected Performance</h4>
+                      <div className="h-32 relative">
+                        <svg className="w-full h-full">
+                          {/* Grid Lines */}
+                          <line x1="0" y1="0" x2="0" y2="100%" className="chart-grid-lines" />
+                          <line x1="25%" y1="0" x2="25%" y2="100%" className="chart-grid-lines" />
+                          <line x1="50%" y1="0" x2="50%" y2="100%" className="chart-grid-lines" />
+                          <line x1="75%" y1="0" x2="75%" y2="100%" className="chart-grid-lines" />
+                          <line x1="100%" y1="0" x2="100%" y2="100%" className="chart-grid-lines" />
+                          
+                          <line x1="0" y1="0" x2="100%" y2="0" className="chart-grid-lines" />
+                          <line x1="0" y1="25%" x2="100%" y2="25%" className="chart-grid-lines" />
+                          <line x1="0" y1="50%" x2="100%" y2="50%" className="chart-grid-lines" />
+                          <line x1="0" y1="75%" x2="100%" y2="75%" className="chart-grid-lines" />
+                          <line x1="0" y1="100%" x2="100%" y2="100%" className="chart-grid-lines" />
+                          
+                          {/* Data Line */}
+                          <path 
+                            d="M0,100 L25,80 L50,60 L75,30 L100,20" 
+                            className="chart-data-line"
+                          />
+                          
+                          {/* Area Fill */}
+                          <path 
+                            d="M0,100 L25,80 L50,60 L75,30 L100,20 L100,100 L0,100" 
+                            className="chart-area-gradient"
+                          />
+                          
+                          {/* Gradient for Area */}
+                          <defs>
+                            <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+                              <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.05" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                        
+                        {/* X-Axis Labels */}
+                        <div className="flex justify-between text-xs text-foreground/60 mt-1">
+                          <span>Month 1</span>
+                          <span>Month 2</span>
+                          <span>Month 3</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-center">
+                      <Button variant="outline" className="text-primary hover:bg-primary/10">
+                        Download Full Report
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Real-time Campaign Monitoring Section */}
+      <section id="campaign-monitoring" className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+              Campaign Monitoring
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Real-time Campaign Dashboard</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Track and optimize your marketing campaigns with our comprehensive real-time dashboard.
+            </p>
+          </div>
+          
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl blur-xl opacity-30"></div>
+            <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 p-6 md:p-8 overflow-hidden">
+              {/* Dashboard Header */}
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 pb-6 border-b border-gray-200 dark:border-gray-700">
+                <div>
+                  <h3 className="text-xl font-bold text-foreground mb-1">Campaign Performance Overview</h3>
+                  <p className="text-foreground/60">Last updated: 2 minutes ago</p>
+                </div>
+                
+                <div className="flex mt-4 md:mt-0 space-x-4">
+                  <div className="rounded-md shadow-sm flex">
+                    <Button variant="outline" className="rounded-r-none border-r-0">Day</Button>
+                    <Button variant="outline" className="rounded-none border-x-0">Week</Button>
+                    <Button variant="outline" className="rounded-l-none border-l-0 bg-primary/10 text-primary">Month</Button>
+                  </div>
+                  
+                  <Button variant="outline" className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Export
+                  </Button>
+                </div>
+              </div>
+              
+              {/* Main Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-foreground/70">Total Impressions</span>
+                    <span className="text-xs px-2 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 rounded-full">+24%</span>
+                  </div>
+                  <div className="text-2xl font-bold text-foreground">1,254,789</div>
+                  <div className="mt-2 text-xs text-foreground/60">Compared to 1,012,547 last month</div>
+                </div>
+                
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-foreground/70">Engagement Rate</span>
+                    <span className="text-xs px-2 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 rounded-full">+3.2%</span>
+                  </div>
+                  <div className="text-2xl font-bold text-foreground">8.7%</div>
+                  <div className="mt-2 text-xs text-foreground/60">Compared to 5.5% last month</div>
+                </div>
+                
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-foreground/70">Conversions</span>
+                    <span className="text-xs px-2 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 rounded-full">+18%</span>
+                  </div>
+                  <div className="text-2xl font-bold text-foreground">3,847</div>
+                  <div className="mt-2 text-xs text-foreground/60">Compared to 3,259 last month</div>
+                </div>
+                
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-foreground/70">Cost per Conversion</span>
+                    <span className="text-xs px-2 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100 rounded-full">+2.3%</span>
+                  </div>
+                  <div className="text-2xl font-bold text-foreground">$12.38</div>
+                  <div className="mt-2 text-xs text-foreground/60">Compared to $12.10 last month</div>
+                </div>
+              </div>
+              
+              {/* Campaign Performance by Channel */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                <div className="lg:col-span-2">
+                  <h4 className="text-lg font-semibold text-foreground mb-4">Campaign Performance by Channel</h4>
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 h-64 flex items-center justify-center">
+                    <div className="w-full h-full">
+                      {/* This would be a chart in a real application */}
+                      <div className="bg-gray-100 dark:bg-gray-800 h-full rounded-lg flex items-center justify-center">
+                        <div className="text-center">
+                          <p className="text-foreground font-semibold mb-2">Channel Performance Chart</p>
+                          <p className="text-foreground/70 text-sm">Visualization showing performance across channels</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="text-lg font-semibold text-foreground mb-4">Top Performing Content</h4>
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <ul className="space-y-4">
+                      <li className="border-b border-gray-200 dark:border-gray-700 pb-3">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h5 className="font-medium text-foreground">10 Marketing Trends for 2025</h5>
+                            <p className="text-sm text-foreground/70">Blog Post</p>
+                          </div>
+                          <span className="text-sm bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 px-2 py-1 rounded-full">87% Engagement</span>
+                        </div>
+                      </li>
+                      <li className="border-b border-gray-200 dark:border-gray-700 pb-3">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h5 className="font-medium text-foreground">Email Campaign: Summer Sale</h5>
+                            <p className="text-sm text-foreground/70">Email</p>
+                          </div>
+                          <span className="text-sm bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 px-2 py-1 rounded-full">42% Open Rate</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h5 className="font-medium text-foreground">Behind the Scenes Video</h5>
+                            <p className="text-sm text-foreground/70">Instagram Reel</p>
+                          </div>
+                          <span className="text-sm bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 px-2 py-1 rounded-full">12K Views</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Audience Insights */}
+              <div>
+                <h4 className="text-lg font-semibold text-foreground mb-4">Audience Insights</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <h5 className="font-medium text-foreground mb-3">Demographics</h5>
+                    <div className="space-y-3">
+                      <div>
+                        <div className="flex justify-between mb-1 text-sm">
+                          <span className="text-foreground/70">25-34 years</span>
+                          <span className="text-foreground/70">38%</span>
+                        </div>
+                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                          <div className="h-2 bg-primary rounded-full" style={{ width: "38%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1 text-sm">
+                          <span className="text-foreground/70">35-44 years</span>
+                          <span className="text-foreground/70">27%</span>
+                        </div>
+                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                          <div className="h-2 bg-primary rounded-full" style={{ width: "27%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1 text-sm">
+                          <span className="text-foreground/70">18-24 years</span>
+                          <span className="text-foreground/70">21%</span>
+                        </div>
+                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                          <div className="h-2 bg-primary rounded-full" style={{ width: "21%" }}></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <h5 className="font-medium text-foreground mb-3">Geographic Distribution</h5>
+                    <div className="space-y-3">
+                      <div>
+                        <div className="flex justify-between mb-1 text-sm">
+                          <span className="text-foreground/70">United States</span>
+                          <span className="text-foreground/70">42%</span>
+                        </div>
+                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                          <div className="h-2 bg-accent rounded-full" style={{ width: "42%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1 text-sm">
+                          <span className="text-foreground/70">Europe</span>
+                          <span className="text-foreground/70">28%</span>
+                        </div>
+                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                          <div className="h-2 bg-accent rounded-full" style={{ width: "28%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1 text-sm">
+                          <span className="text-foreground/70">Asia Pacific</span>
+                          <span className="text-foreground/70">18%</span>
+                        </div>
+                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                          <div className="h-2 bg-accent rounded-full" style={{ width: "18%" }}></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-10 text-center">
+            <Button className="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-lg button-3d">
+              Get Access to Full Dashboard
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section id="process" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
