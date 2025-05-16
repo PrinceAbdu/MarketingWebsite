@@ -568,6 +568,315 @@ const Home = () => {
         </div>
       </section>
 
+      {/* AI Marketing Assistant Section */}
+      <section id="ai-assistant" className="py-24 relative overflow-hidden">
+        {/* Background effects */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#090e1a] to-[#161a2c] -z-10"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZ2LTQuMDAxaDJ2NC4wMDFoLTJ6bS02IDZ2LTRoMnY0aC0yem02LTEwVjIwaDJ2NC4wMDFoLTJ6TTI4IDM0aDJWMzBoLTJ2NHptLTIgMGgtMnYtNGgydjR6bTIgMFYyMGgydjE0aC0yem0tNi00di00LjAwMWgyVjMwaC0yem0tNiA0aDF2LTRoLTF2NHptMSAwdjRoLTF2LTRoMXptLTMtOGgtMnY0aDJ2LTR6bTAgMTJoLTJ2NGgydi00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-50 -z-10"></div>
+
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            {/* Left content */}
+            <div className="lg:w-1/2 space-y-8">
+              <div className="space-y-6">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-[#6366f1]/20 text-[#818cf8] text-sm font-medium">
+                  AI-Powered Marketing
+                </span>
+                <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white">
+                  Your Personal AI Marketing Assistant
+                </h2>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Unlike other platforms, we integrate advanced AI that learns your business and creates personalized marketing strategies. Our platform becomes smarter with each interaction.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:scale-105">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#6366f1] to-[#818cf8] rounded-lg flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Smart Content Generation</h3>
+                  <p className="text-gray-300">
+                    AI-written content tailored to your brand voice and audience preferences.
+                  </p>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:scale-105">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#ec4899] to-[#f472b6] rounded-lg flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Audience Prediction</h3>
+                  <p className="text-gray-300">
+                    Anticipate market trends and customer behaviors before they happen.
+                  </p>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:scale-105">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#2dd4bf] to-[#5eead4] rounded-lg flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Real-time Optimization</h3>
+                  <p className="text-gray-300">
+                    Campaigns that automatically adjust based on performance metrics.
+                  </p>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:scale-105">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#f59e0b] to-[#fbbf24] rounded-lg flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Competitor Analysis</h3>
+                  <p className="text-gray-300">
+                    AI-powered insights into competitor strategies and market gaps.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <Button className="bg-gradient-to-r from-[#6366f1] to-[#818cf8] text-white font-medium px-8 py-3 rounded-full hover:shadow-lg hover:shadow-[#6366f1]/30 transition-all duration-300">
+                  Try AI Assistant Now
+                </Button>
+              </div>
+            </div>
+
+            {/* Right content - 3D Visualization */}
+            <div className="lg:w-1/2 relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#6366f1] to-[#818cf8] rounded-2xl blur-lg opacity-50"></div>
+              <div className="relative bg-black/40 backdrop-blur-sm rounded-2xl border border-white/20 p-4 overflow-hidden">
+                <div className="bg-gray-900/80 rounded-lg p-6 backdrop-blur-sm">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#6366f1] to-[#818cf8] flex items-center justify-center mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">AI Marketing Assistant</h3>
+                      <p className="text-gray-300 text-sm">Powered by advanced machine learning</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start">
+                      <div className="bg-gray-800 rounded-lg p-3 max-w-[80%]">
+                        <p className="text-gray-300">What marketing strategy would work best for my SaaS product targeting small business owners?</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start justify-end">
+                      <div className="bg-[#6366f1] rounded-lg p-3 max-w-[80%]">
+                        <p className="text-white">Based on your audience analysis, I recommend a multi-channel approach:</p>
+                        <ul className="text-white mt-2 space-y-1 list-disc list-inside">
+                          <li>LinkedIn content marketing focusing on pain points</li>
+                          <li>Email drip campaigns with personalized demos</li>
+                          <li>Targeted Google Ads with "cost-saving" messaging</li>
+                        </ul>
+                        <p className="text-white mt-2">Based on similar businesses, this approach has shown a 43% higher conversion rate than traditional methods.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start">
+                      <div className="bg-gray-800 rounded-lg p-3 max-w-[80%]">
+                        <p className="text-gray-300">Can you create content for our LinkedIn page?</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start justify-end">
+                      <div className="bg-[#6366f1] rounded-lg p-3 max-w-[80%]">
+                        <p className="text-white">I've analyzed your brand voice and target audience. Here's a LinkedIn post draft:</p>
+                        <p className="text-white mt-2 italic">"Struggling with managing client communications? Our new dashboard reduces response time by 65% on average. See how one agency went from overwhelmed to organized in just 3 days. [Link to case study]"</p>
+                        <p className="text-white mt-2">Would you like me to prepare a full week's content schedule?</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative">
+                    <input type="text" className="w-full bg-gray-800 text-white rounded-full px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-[#6366f1]" placeholder="Ask your marketing assistant..." />
+                    <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#6366f1] hover:text-[#818cf8]">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Data Platform Section */}
+      <section id="data-platform" className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-950">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            {/* Left - Platform Visualization */}
+            <div className="lg:w-1/2">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/30 to-[#14b8a6]/30 z-0"></div>
+                <div className="relative bg-white dark:bg-gray-800 p-6 z-10">
+                  {/* Platform Header */}
+                  <div className="mb-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold dark:text-white">Unified Customer Data Platform</h3>
+                      <div className="flex space-x-1">
+                        <span className="w-3 h-3 rounded-full bg-red-500"></span>
+                        <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+                        <span className="w-3 h-3 rounded-full bg-green-500"></span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Customer Journey Visualization */}
+                  <div className="bg-slate-50 dark:bg-gray-900 rounded-lg p-4 mb-6">
+                    <div className="flex justify-between items-center mb-4">
+                      <h4 className="font-semibold dark:text-white">Customer Journey Map</h4>
+                      <span className="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 px-2 py-1 rounded-full">Live View</span>
+                    </div>
+                    
+                    <div className="relative">
+                      {/* Journey Path */}
+                      <div className="h-24 relative">
+                        <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 dark:bg-gray-700 transform -translate-y-1/2 z-0"></div>
+                        
+                        {/* Journey Steps */}
+                        <div className="absolute top-1/2 left-[10%] w-6 h-6 bg-blue-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">1</div>
+                        <div className="absolute top-0 left-[10%] text-xs font-medium dark:text-gray-300 transform -translate-x-1/2">First Visit</div>
+                        
+                        <div className="absolute top-1/2 left-[30%] w-6 h-6 bg-blue-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">2</div>
+                        <div className="absolute top-0 left-[30%] text-xs font-medium dark:text-gray-300 transform -translate-x-1/2">Email Signup</div>
+                        
+                        <div className="absolute top-1/2 left-[50%] w-6 h-6 bg-blue-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">3</div>
+                        <div className="absolute top-0 left-[50%] text-xs font-medium dark:text-gray-300 transform -translate-x-1/2">Product Demo</div>
+                        
+                        <div className="absolute top-1/2 left-[70%] w-6 h-6 bg-blue-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">4</div>
+                        <div className="absolute top-0 left-[70%] text-xs font-medium dark:text-gray-300 transform -translate-x-1/2">Purchase</div>
+                        
+                        <div className="absolute top-1/2 left-[90%] w-6 h-6 bg-green-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">5</div>
+                        <div className="absolute top-0 left-[90%] text-xs font-medium dark:text-gray-300 transform -translate-x-1/2">Retention</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Data Unification Visualization */}
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="bg-slate-100 dark:bg-gray-900 p-3 rounded-lg">
+                      <div className="text-xs font-semibold mb-2 text-gray-700 dark:text-gray-300">Website Data</div>
+                      <div className="flex items-center text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        <span className="dark:text-white">352 events</span>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-slate-100 dark:bg-gray-900 p-3 rounded-lg">
+                      <div className="text-xs font-semibold mb-2 text-gray-700 dark:text-gray-300">Email Stats</div>
+                      <div className="flex items-center text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span className="dark:text-white">24 opens</span>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-slate-100 dark:bg-gray-900 p-3 rounded-lg">
+                      <div className="text-xs font-semibold mb-2 text-gray-700 dark:text-gray-300">Ad Platform</div>
+                      <div className="flex items-center text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                        </svg>
+                        <span className="dark:text-white">8 clicks</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Personalization Suggestion */}
+                  <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-100 dark:border-blue-800">
+                    <h4 className="font-semibold text-sm text-blue-800 dark:text-blue-200 mb-2">Personalization Suggestion</h4>
+                    <p className="text-sm text-blue-700 dark:text-blue-300">This customer is interested in social media automation features based on their browsing history. Send them our case study on how Company X increased engagement by 136%.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right content */}
+            <div className="lg:w-1/2 space-y-6">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-[#0ea5e9]/20 text-[#0ea5e9] text-sm font-medium">
+                Unified Data
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
+                The Only Platform with a True 360° Customer View
+              </h2>
+              <p className="text-foreground/70 text-lg">
+                Unlike disconnected marketing tools, our platform integrates data from every customer touchpoint into a single, actionable view. No more siloed data or inconsistent customer experiences.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#0ea5e9]/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#0ea5e9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-foreground mb-1">Cross-Channel Data</h3>
+                    <p className="text-foreground/70">Unify web, email, social, ad, and CRM data automatically</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#0ea5e9]/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#0ea5e9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-foreground mb-1">Privacy-First Design</h3>
+                    <p className="text-foreground/70">GDPR and CCPA compliant with built-in consent management</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#0ea5e9]/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#0ea5e9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-foreground mb-1">Predictive Analytics</h3>
+                    <p className="text-foreground/70">Identify high-value prospects before they convert</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#0ea5e9]/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#0ea5e9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-foreground mb-1">Automated Segmentation</h3>
+                    <p className="text-foreground/70">Dynamic segments that update in real-time based on behavior</p>
+                  </div>
+                </div>
+              </div>
+              
+              <Button className="bg-gradient-to-r from-[#0ea5e9] to-[#14b8a6] text-white hover:shadow-lg hover:shadow-[#0ea5e9]/30 transition-all duration-300 rounded-lg px-6 py-3 mt-4">
+                Explore the Data Platform
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section id="process" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">

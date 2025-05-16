@@ -49,6 +49,8 @@ const Navbar = () => {
     { href: "#services", label: "Services" },
     { href: "#features", label: "Features" },
     { href: "#service-options", label: "Service Options" },
+    { href: "#ai-assistant", label: "AI Assistant" },
+    { href: "#data-platform", label: "Customer Data" },
     { href: "#process", label: "Our Process" },
     { href: "#about", label: "About Us" },
     { href: "#testimonials", label: "Testimonials" },
