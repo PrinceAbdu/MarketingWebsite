@@ -4,334 +4,326 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionItem } from "@/components/ui/accordion-custom";
 import { ChartLine, BarChart3, Users, Zap, Shield, Clock, ChevronRight } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 
-const Home = () => {
-  const { toast } = useToast();
+export default function Home() {
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
-    company: "",
     message: ""
   });
 
-  const handleContactFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setContactForm(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleContactSubmit = async (e: React.FormEvent) => {
+  const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+    // Add your form submission logic here
     try {
-      await apiRequest("POST", "/api/contact", contactForm);
-      
-      toast({
-        title: "Message sent!",
-        description: "We'll get back to you soon.",
-      });
-      
-      // Reset form
-      setContactForm({
-        name: "",
-        email: "",
-        company: "",
-        message: ""
-      });
+      console.log("Form submitted:", contactForm);
+      // Reset form after submission
+      setContactForm({ name: "", email: "", message: "" });
+      alert("Message sent! We'll get back to you soon.");
     } catch (error) {
-      toast({
-        title: "Error sending message",
-        description: "Please try again later.",
-        variant: "destructive"
-      });
+      console.error("Error submitting form:", error);
+      alert("There was an error sending your message. Please try again.");
     }
   };
 
   return (
-    <div className="bg-white text-navy smooth-scroll">
+    <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="pt-36 pb-24 relative overflow-hidden">
-        {/* Background with animated gradient */}
-        <div className="absolute inset-0 animated-gradient opacity-95 z-0"></div>
-        
-        {/* Decorative geometric shapes */}
-        <div className="absolute top-1/4 right-[5%] w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-[10%] w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
-        
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-5 z-0"></div>
+      <section id="hero" className="relative min-h-screen flex items-center py-20">
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden -z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/50"></div>
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent"></div>
+          
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+          
+          {/* Animated Gradient Orbs */}
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/30 rounded-full filter blur-3xl opacity-30 animate-blob"></div>
+          <div className="absolute top-60 -right-40 w-80 h-80 bg-accent/30 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-40 left-20 w-80 h-80 bg-primary/30 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+        </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left">
-              <div className="inline-block mb-2 bg-primary/10 px-4 py-1 rounded-full">
-                <span className="text-primary font-medium text-sm">BUSINESS GROWTH EXPERTS • EST 2025</span>
+            <div className="lg:w-1/2 space-y-8 mb-12 lg:mb-0">
+              <div>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6">
+                  Future of Marketing
+                </span>
+                <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-foreground">
+                  Revolutionize Your<br />
+                  <span className="text-gradient">Marketing Strategy</span>
+                </h1>
+                <p className="text-lg md:text-xl text-foreground/70 max-w-xl">
+                  Harness the power of AI and data-driven insights to supercharge your marketing efforts and drive unprecedented growth for your business.
+                </p>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-                Scale Your Business With Intelligent Strategy
-              </h1>
-              <p className="text-lg md:text-xl mb-8 text-foreground/80 max-w-xl mx-auto lg:mx-0">
-                We help ambitious business owners achieve sustainable growth through AI-powered systems, frameworks, and strategies that deliver measurable results.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button className="bg-primary text-white px-8 py-6 rounded-full font-semibold hover:bg-primary-light transition-all duration-300 glow-button text-lg">
-                  <span>Book Free Strategy Call</span>
-                  <span className="ml-2">→</span>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button className="cta-button rounded-full px-8 py-6 bg-primary hover:bg-primary-light text-primary-foreground">
+                  Get Started Free
                 </Button>
-                <Button variant="outline" className="gradient-border px-8 py-6 rounded-full font-semibold hover:bg-primary/5 transition-all duration-300 text-lg">
-                  Learn About Our Process
+                <Button variant="outline" className="rounded-full px-8 py-6 border-primary/30 hover:bg-primary/10 text-foreground">
+                  Book a Demo
                 </Button>
               </div>
               
-              {/* Stats or social proof */}
-              <div className="mt-12 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-primary mb-1">500+</p>
-                  <p className="text-sm text-foreground/70">Clients</p>
+              <div className="flex items-center space-x-8 text-foreground/60">
+                <div className="flex items-center">
+                  <Shield className="w-5 h-5 mr-2 text-primary" />
+                  <span>Secure & Compliant</span>
                 </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-primary mb-1">97%</p>
-                  <p className="text-sm text-foreground/70">Success Rate</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-primary mb-1">24/7</p>
-                  <p className="text-sm text-foreground/70">Support</p>
+                <div className="flex items-center">
+                  <Clock className="w-5 h-5 mr-2 text-primary" />
+                  <span>24/7 Support</span>
                 </div>
               </div>
             </div>
             
-            <div className="lg:w-1/2 relative">
-              {/* Main image with float animation */}
-              <div className="relative z-10 float-element">
-                <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                  alt="Business growth strategy session" 
-                  className="rounded-2xl shadow-2xl w-full object-cover glass-card"
-                />
-                <div className="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-4 rounded-lg shadow-lg">
-                  <p className="text-sm font-semibold">Average Growth</p>
-                  <p className="text-2xl font-bold">+147%</p>
+            <div className="lg:w-1/2 flex justify-center">
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
+                <div className="relative glass-card p-6 rounded-2xl overflow-hidden shadow-xl">
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/20">
+                      <ChartLine className="w-6 h-6 text-primary mb-2" />
+                      <h3 className="font-semibold mb-1">Analytics</h3>
+                      <p className="text-sm text-foreground/70">Real-time performance data</p>
+                    </div>
+                    <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/20">
+                      <BarChart3 className="w-6 h-6 text-accent mb-2" />
+                      <h3 className="font-semibold mb-1">Insights</h3>
+                      <p className="text-sm text-foreground/70">AI-driven recommendations</p>
+                    </div>
+                    <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/20">
+                      <Users className="w-6 h-6 text-accent mb-2" />
+                      <h3 className="font-semibold mb-1">Audience</h3>
+                      <p className="text-sm text-foreground/70">Detailed segmentation</p>
+                    </div>
+                    <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/20">
+                      <Zap className="w-6 h-6 text-primary mb-2" />
+                      <h3 className="font-semibold mb-1">Automation</h3>
+                      <p className="text-sm text-foreground/70">Streamlined workflows</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10">
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="font-semibold">Marketing Performance</h3>
+                      <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Live</span>
+                    </div>
+                    <div className="space-y-3">
+                      <div>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span>Social Media</span>
+                          <span className="text-primary">+78%</span>
+                        </div>
+                        <div className="w-full bg-white/10 rounded-full h-2">
+                          <div className="bg-primary h-2 rounded-full" style={{ width: "78%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span>Email Campaigns</span>
+                          <span className="text-primary">+65%</span>
+                        </div>
+                        <div className="w-full bg-white/10 rounded-full h-2">
+                          <div className="bg-primary h-2 rounded-full" style={{ width: "65%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span>Content Marketing</span>
+                          <span className="text-accent">+92%</span>
+                        </div>
+                        <div className="w-full bg-white/10 rounded-full h-2">
+                          <div className="bg-accent h-2 rounded-full" style={{ width: "92%" }}></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-8 -left-8 w-20 h-20 bg-accent rounded-xl opacity-20 blur-sm"></div>
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-primary rounded-full opacity-10 blur-md"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Client Logos Section */}
-      <section className="py-16 relative overflow-hidden">
-        {/* Subtle patterned background */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col items-center mb-12">
-            <span className="text-xs font-semibold tracking-wider text-primary uppercase mb-2">Innovation Partners</span>
-            <h2 className="text-center text-2xl font-bold text-foreground mb-2">Trusted by Industry Leaders</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+      {/* Clients Section */}
+      <section className="py-16 bg-background/50 relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-foreground/60">Trusted by forward-thinking companies</span>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
-            {[1, 2, 3, 4, 5].map((num) => (
-              <div key={num} className="group relative">
-                <div className="w-full aspect-video glass-card rounded-xl flex items-center justify-center 
-                                p-4 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-primary/30">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl opacity-0 
-                                  group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r 
-                                 from-primary/80 to-accent/80 group-hover:from-primary group-hover:to-accent 
-                                 transition-all duration-300 relative z-10">
-                    LOGO {num}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <p className="text-foreground/60 max-w-xl mx-auto">
-              Partnering with forward-thinking organizations to deliver measurable business growth and digital transformation since 2025.
-            </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            {/* These would be your client logos */}
+            <div className="text-foreground/40 hover:text-foreground/80 transition-colors duration-300 text-2xl font-bold">Microsoft</div>
+            <div className="text-foreground/40 hover:text-foreground/80 transition-colors duration-300 text-2xl font-bold">Adobe</div>
+            <div className="text-foreground/40 hover:text-foreground/80 transition-colors duration-300 text-2xl font-bold">Shopify</div>
+            <div className="text-foreground/40 hover:text-foreground/80 transition-colors duration-300 text-2xl font-bold">Salesforce</div>
+            <div className="text-foreground/40 hover:text-foreground/80 transition-colors duration-300 text-2xl font-bold">Stripe</div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute top-1/3 left-[-10%] w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-[-5%] w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
+      <section id="services" className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-tr from-secondary/80 to-background -z-10"></div>
+        {/* Add subtle grid pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5 -z-10"></div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col items-center mb-16">
-            <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-4">SERVICES</span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-              Our Growth Acceleration Services
-            </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-accent rounded-full mb-6"></div>
-            <p className="text-lg text-foreground/70 max-w-3xl mx-auto text-center">
-              We offer cutting-edge solutions powered by AI and data analytics to help your business achieve unprecedented growth in today's digital landscape.
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+              Our Services
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Comprehensive Marketing Services</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Everything you need to establish a strong online presence and effectively reach your target audience.
             </p>
           </div>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Service Card 1 - Growth Strategy */}
-            <div className="group hover-card glass-card rounded-xl p-1">
-              <div className="bg-card rounded-lg p-8 h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
-                      <ChartLine className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-foreground/50">01</span>
+            {/* Service Card 1 */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-card hover:bg-card/80 p-8 rounded-xl transition duration-300 h-full flex flex-col shadow-lg border border-card">
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
                 </div>
-                
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">AI-Powered Growth Strategy</h3>
-                <p className="text-foreground/70 mb-6">
-                  Predictive analytics and AI-driven roadmaps that align with your business goals and market conditions to achieve sustainable growth.
+                <h3 className="text-xl font-semibold mb-3 text-card-foreground">Website Design & Development</h3>
+                <p className="text-card-foreground/70 mb-6 flex-grow">
+                  Custom-designed websites that are visually stunning, user-friendly, and optimized for conversion.
                 </p>
-                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
-                  <span className="mr-2">Explore Service</span>
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <ChevronRight className="h-3 w-3 text-primary" />
-                  </div>
-                </a>
+                <div className="mt-auto">
+                  <Button variant="link" className="pl-0 text-primary flex items-center group">
+                    Learn more 
+                    <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </div>
               </div>
             </div>
-
-            {/* Service Card 2 - Marketing Optimization */}
-            <div className="group hover-card glass-card rounded-xl p-1">
-              <div className="bg-card rounded-lg p-8 h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
-                      <BarChart3 className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-foreground/50">02</span>
+            
+            {/* Service Card 2 */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-card hover:bg-card/80 p-8 rounded-xl transition duration-300 h-full flex flex-col shadow-lg border border-card">
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                  </svg>
                 </div>
-                
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Neural Marketing Optimization</h3>
-                <p className="text-foreground/70 mb-6">
-                  Machine learning algorithms that optimize campaigns in real-time, driving qualified leads with unprecedented conversion rates.
+                <h3 className="text-xl font-semibold mb-3 text-card-foreground">Social Media Management</h3>
+                <p className="text-card-foreground/70 mb-6 flex-grow">
+                  Strategic social media campaigns that increase engagement, build brand awareness, and drive qualified traffic.
                 </p>
-                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
-                  <span className="mr-2">Explore Service</span>
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <ChevronRight className="h-3 w-3 text-primary" />
-                  </div>
-                </a>
+                <div className="mt-auto">
+                  <Button variant="link" className="pl-0 text-primary flex items-center group">
+                    Learn more 
+                    <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </div>
               </div>
             </div>
-
-            {/* Service Card 3 - Team Development */}
-            <div className="group hover-card glass-card rounded-xl p-1">
-              <div className="bg-card rounded-lg p-8 h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
-                      <Users className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-foreground/50">03</span>
+            
+            {/* Service Card 3 */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-card hover:bg-card/80 p-8 rounded-xl transition duration-300 h-full flex flex-col shadow-lg border border-card">
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
                 </div>
-                
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Augmented Team Development</h3>
-                <p className="text-foreground/70 mb-6">
-                  Advanced talent management and AI-assisted team augmentation to build high-performance teams that execute growth strategies flawlessly.
+                <h3 className="text-xl font-semibold mb-3 text-card-foreground">Search Engine Optimization</h3>
+                <p className="text-card-foreground/70 mb-6 flex-grow">
+                  Data-driven SEO strategies that improve your search rankings and drive organic traffic to your website.
                 </p>
-                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
-                  <span className="mr-2">Explore Service</span>
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <ChevronRight className="h-3 w-3 text-primary" />
-                  </div>
-                </a>
+                <div className="mt-auto">
+                  <Button variant="link" className="pl-0 text-primary flex items-center group">
+                    Learn more 
+                    <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </div>
               </div>
             </div>
-
-            {/* Service Card 4 - Systems Implementation */}
-            <div className="group hover-card glass-card rounded-xl p-1">
-              <div className="bg-card rounded-lg p-8 h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
-                      <Zap className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-foreground/50">04</span>
+            
+            {/* Service Card 4 */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-card hover:bg-card/80 p-8 rounded-xl transition duration-300 h-full flex flex-col shadow-lg border border-card">
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
                 </div>
-                
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Intelligent Systems Integration</h3>
-                <p className="text-foreground/70 mb-6">
-                  Implement autonomous systems with predictive capabilities that eliminate bottlenecks and scale operations efficiently.
+                <h3 className="text-xl font-semibold mb-3 text-card-foreground">Content Marketing</h3>
+                <p className="text-card-foreground/70 mb-6 flex-grow">
+                  Compelling content strategies that establish your authority, engage your audience, and drive conversions.
                 </p>
-                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
-                  <span className="mr-2">Explore Service</span>
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <ChevronRight className="h-3 w-3 text-primary" />
-                  </div>
-                </a>
+                <div className="mt-auto">
+                  <Button variant="link" className="pl-0 text-primary flex items-center group">
+                    Learn more 
+                    <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </div>
               </div>
             </div>
-
-            {/* Service Card 5 - Revenue Optimization */}
-            <div className="group hover-card glass-card rounded-xl p-1">
-              <div className="bg-card rounded-lg p-8 h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
-                      <Shield className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-foreground/50">05</span>
+            
+            {/* Service Card 5 */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-card hover:bg-card/80 p-8 rounded-xl transition duration-300 h-full flex flex-col shadow-lg border border-card">
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                  </svg>
                 </div>
-                
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Quantum Revenue Optimization</h3>
-                <p className="text-foreground/70 mb-6">
-                  Advanced analytics uncover hidden revenue opportunities and optimize pricing structures for maximum profitability.
+                <h3 className="text-xl font-semibold mb-3 text-card-foreground">Pay-Per-Click Advertising</h3>
+                <p className="text-card-foreground/70 mb-6 flex-grow">
+                  Targeted PPC campaigns that maximize your ROI and deliver measurable results for your business.
                 </p>
-                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
-                  <span className="mr-2">Explore Service</span>
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <ChevronRight className="h-3 w-3 text-primary" />
-                  </div>
-                </a>
+                <div className="mt-auto">
+                  <Button variant="link" className="pl-0 text-primary flex items-center group">
+                    Learn more 
+                    <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </div>
               </div>
             </div>
-
-            {/* Service Card 6 - Executive Coaching */}
-            <div className="group hover-card glass-card rounded-xl p-1">
-              <div className="bg-card rounded-lg p-8 h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary blur-md opacity-20 rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-xl flex items-center justify-center">
-                      <Clock className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-foreground/50">06</span>
+            
+            {/* Service Card 6 */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-card hover:bg-card/80 p-8 rounded-xl transition duration-300 h-full flex flex-col shadow-lg border border-card">
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
                 </div>
-                
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">Strategic Executive Guidance</h3>
-                <p className="text-foreground/70 mb-6">
-                  Personalized leadership development with AI-enhanced feedback systems to help you evolve into a visionary business leader.
+                <h3 className="text-xl font-semibold mb-3 text-card-foreground">Email Marketing</h3>
+                <p className="text-card-foreground/70 mb-6 flex-grow">
+                  Strategic email campaigns that nurture leads, build customer loyalty, and drive repeat business.
                 </p>
-                <a href="#" className="text-primary font-medium inline-flex items-center group-hover:opacity-80 transition-opacity">
-                  <span className="mr-2">Explore Service</span>
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <ChevronRight className="h-3 w-3 text-primary" />
-                  </div>
-                </a>
+                <div className="mt-auto">
+                  <Button variant="link" className="pl-0 text-primary flex items-center group">
+                    Learn more 
+                    <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -339,27 +331,24 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 relative overflow-hidden bg-gradient-to-b from-background to-secondary/20">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="absolute top-1/3 right-[-10%] w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-[-5%] w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      <section id="features" className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-white dark:bg-gray-950"></div>
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col items-center mb-16">
-            <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-4">PLATFORM FEATURES</span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-              Cutting-Edge Marketing Tools
-            </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-accent rounded-full mb-6"></div>
-            <p className="text-lg text-foreground/70 max-w-3xl mx-auto text-center">
-              Our platform provides advanced marketing features designed to help your business grow in the digital landscape of 2025.
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+              Features
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Powerful Marketing Tools</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Cutting-edge features designed to transform your marketing strategy and drive exceptional results.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Feature Image 1 */}
-            <div className="order-2 lg:order-1">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Left Side */}
+            <div className="space-y-12">
               <div className="relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
                 <div className="relative bg-card rounded-2xl overflow-hidden shadow-xl">
@@ -369,97 +358,45 @@ const Home = () => {
                     className="w-full h-auto"
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-4 bg-primary text-white px-4 py-2 rounded-lg shadow-lg text-sm">
-                  <p className="font-semibold">Intelligent Analytics</p>
-                </div>
               </div>
-            </div>
-            
-            {/* Feature Description 1 */}
-            <div className="order-1 lg:order-2">
-              <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <ChartLine className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">Real-time Analytics Dashboard</h3>
-                </div>
-                
-                <p className="text-foreground/70 text-lg leading-relaxed">
-                  Our AI-powered analytics platform provides real-time insights into your marketing campaigns, 
-                  customer behavior, and business performance. Track KPIs, identify trends, and make data-driven 
-                  decisions with our intuitive visualization tools.
+              
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">AI-Powered Marketing Dashboard</h3>
+                <p className="text-foreground/70 mb-6">
+                  Our intelligent dashboard provides real-time analytics and actionable insights to optimize your marketing campaigns instantly.
                 </p>
-                
                 <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <div className="mr-2 mt-1 text-primary">✓</div>
-                    <p>Customizable dashboards with drag-and-drop interface</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="mr-2 mt-1 text-primary">✓</div>
-                    <p>Predictive analytics to forecast future performance</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="mr-2 mt-1 text-primary">✓</div>
-                    <p>Automated reporting and insights generation</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="mr-2 mt-1 text-primary">✓</div>
-                    <p>Competitive intelligence and market trend analysis</p>
-                  </li>
+                  {['Advanced performance metrics', 'Competitive analysis', 'Audience behavior tracking', 'ROI calculation'].map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
-                
-                <Button className="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-light transition-all duration-300 glow-button">
-                  <span>Explore Analytics Features</span>
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
               </div>
             </div>
             
-            {/* Feature Description 2 */}
-            <div className="order-3">
-              <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Zap className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">Automated Marketing Campaigns</h3>
-                </div>
-                
-                <p className="text-foreground/70 text-lg leading-relaxed">
-                  Leverage our AI-driven campaign management system to automate your marketing efforts across multiple 
-                  channels. Our platform optimizes campaign performance in real-time, ensuring maximum ROI on your marketing spend.
+            {/* Right Side */}
+            <div className="space-y-12">
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">Automated Marketing Campaigns</h3>
+                <p className="text-foreground/70 mb-6">
+                  Streamline your marketing efforts with powerful automation tools that save time and deliver consistent results.
                 </p>
-                
                 <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <div className="mr-2 mt-1 text-primary">✓</div>
-                    <p>Multi-channel campaign orchestration and scheduling</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="mr-2 mt-1 text-primary">✓</div>
-                    <p>AI-powered audience segmentation and targeting</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="mr-2 mt-1 text-primary">✓</div>
-                    <p>Dynamic content personalization at scale</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="mr-2 mt-1 text-primary">✓</div>
-                    <p>Automated A/B testing and performance optimization</p>
-                  </li>
+                  {['Multi-channel campaign management', 'Personalized customer journeys', 'Behavioral trigger automation', 'A/B testing and optimization'].map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
-                
-                <Button className="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-light transition-all duration-300 glow-button">
-                  <span>Discover Campaign Tools</span>
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
               </div>
-            </div>
-            
-            {/* Feature Image 2 */}
-            <div className="order-4">
+              
               <div className="relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
                 <div className="relative bg-card rounded-2xl overflow-hidden shadow-xl">
@@ -468,9 +405,6 @@ const Home = () => {
                     alt="Automated Marketing Campaign Dashboard" 
                     className="w-full h-auto"
                   />
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-accent text-white px-4 py-2 rounded-lg shadow-lg text-sm">
-                  <p className="font-semibold">Smart Automation</p>
                 </div>
               </div>
             </div>
@@ -569,17 +503,15 @@ const Home = () => {
       </section>
 
       {/* AI Marketing Assistant Section */}
-      <section id="ai-assistant" className="py-24 relative overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#090e1a] to-[#161a2c] -z-10"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDIwMjAiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZ2LTQuMDAxaDJ2NC4wMDFoLTJ6bS02IDZ2LTRoMnY0aC0yem02LTEwVjIwaDJ2NC4wMDFoLTJ6TTI4IDM0aDJWMzBoLTJ2NHptLTIgMGgtMnYtNGgydjR6bTIgMFYyMGgydjE0aC0yem0tNi00di00LjAwMWgyVjMwaC0yem0tNiA0aDF2LTRoLTF2NHptMSAwdjRoLTF2LTRoMXptLTMtOGgtMnY0aDJ2LTR6bTAgMTJoLTJ2NGgydi00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-50 -z-10"></div>
-
+      <section id="ai-assistant" className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             {/* Left content */}
             <div className="lg:w-1/2 space-y-8">
               <div className="space-y-6">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-[#6366f1]/20 text-[#818cf8] text-sm font-medium">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium">
                   AI-Powered Marketing
                 </span>
                 <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white">
@@ -591,8 +523,8 @@ const Home = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:scale-105">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#6366f1] to-[#818cf8] rounded-lg flex items-center justify-center mb-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="w-12 h-12 bg-primary/80 rounded-lg flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
@@ -603,8 +535,8 @@ const Home = () => {
                   </p>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:scale-105">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#ec4899] to-[#f472b6] rounded-lg flex items-center justify-center mb-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="w-12 h-12 bg-accent/80 rounded-lg flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                     </svg>
@@ -615,8 +547,8 @@ const Home = () => {
                   </p>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:scale-105">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#2dd4bf] to-[#5eead4] rounded-lg flex items-center justify-center mb-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="w-12 h-12 bg-primary/80 rounded-lg flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -627,8 +559,8 @@ const Home = () => {
                   </p>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:scale-105">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#f59e0b] to-[#fbbf24] rounded-lg flex items-center justify-center mb-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="w-12 h-12 bg-accent/80 rounded-lg flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -641,71 +573,68 @@ const Home = () => {
               </div>
 
               <div>
-                <Button className="bg-gradient-to-r from-[#6366f1] to-[#818cf8] text-white font-medium px-8 py-3 rounded-full hover:shadow-lg hover:shadow-[#6366f1]/30 transition-all duration-300">
+                <Button className="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-full transition-all duration-300">
                   Try AI Assistant Now
                 </Button>
               </div>
             </div>
 
-            {/* Right content - 3D Visualization */}
-            <div className="lg:w-1/2 relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#6366f1] to-[#818cf8] rounded-2xl blur-lg opacity-50"></div>
-              <div className="relative bg-black/40 backdrop-blur-sm rounded-2xl border border-white/20 p-4 overflow-hidden">
-                <div className="bg-gray-900/80 rounded-lg p-6 backdrop-blur-sm">
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#6366f1] to-[#818cf8] flex items-center justify-center mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white">AI Marketing Assistant</h3>
-                      <p className="text-gray-300 text-sm">Powered by advanced machine learning</p>
+            {/* Right content - Chat Interface */}
+            <div className="lg:w-1/2">
+              <div className="bg-gray-900 rounded-xl border border-gray-800 p-6 shadow-xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white">AI Marketing Assistant</h3>
+                    <p className="text-gray-400 text-sm">Powered by advanced machine learning</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-start">
+                    <div className="bg-gray-800 rounded-lg p-3 max-w-[80%]">
+                      <p className="text-gray-300">What marketing strategy would work best for my SaaS product targeting small business owners?</p>
                     </div>
                   </div>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-start">
-                      <div className="bg-gray-800 rounded-lg p-3 max-w-[80%]">
-                        <p className="text-gray-300">What marketing strategy would work best for my SaaS product targeting small business owners?</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start justify-end">
-                      <div className="bg-[#6366f1] rounded-lg p-3 max-w-[80%]">
-                        <p className="text-white">Based on your audience analysis, I recommend a multi-channel approach:</p>
-                        <ul className="text-white mt-2 space-y-1 list-disc list-inside">
-                          <li>LinkedIn content marketing focusing on pain points</li>
-                          <li>Email drip campaigns with personalized demos</li>
-                          <li>Targeted Google Ads with "cost-saving" messaging</li>
-                        </ul>
-                        <p className="text-white mt-2">Based on similar businesses, this approach has shown a 43% higher conversion rate than traditional methods.</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start">
-                      <div className="bg-gray-800 rounded-lg p-3 max-w-[80%]">
-                        <p className="text-gray-300">Can you create content for our LinkedIn page?</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start justify-end">
-                      <div className="bg-[#6366f1] rounded-lg p-3 max-w-[80%]">
-                        <p className="text-white">I've analyzed your brand voice and target audience. Here's a LinkedIn post draft:</p>
-                        <p className="text-white mt-2 italic">"Struggling with managing client communications? Our new dashboard reduces response time by 65% on average. See how one agency went from overwhelmed to organized in just 3 days. [Link to case study]"</p>
-                        <p className="text-white mt-2">Would you like me to prepare a full week's content schedule?</p>
-                      </div>
+                  <div className="flex items-start justify-end">
+                    <div className="bg-primary rounded-lg p-3 max-w-[80%]">
+                      <p className="text-white">Based on your audience analysis, I recommend a multi-channel approach:</p>
+                      <ul className="text-white mt-2 space-y-1 list-disc list-inside">
+                        <li>LinkedIn content marketing focusing on pain points</li>
+                        <li>Email drip campaigns with personalized demos</li>
+                        <li>Targeted Google Ads with "cost-saving" messaging</li>
+                      </ul>
+                      <p className="text-white mt-2">Based on similar businesses, this approach has shown a 43% higher conversion rate than traditional methods.</p>
                     </div>
                   </div>
 
-                  <div className="relative">
-                    <input type="text" className="w-full bg-gray-800 text-white rounded-full px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-[#6366f1]" placeholder="Ask your marketing assistant..." />
-                    <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#6366f1] hover:text-[#818cf8]">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </button>
+                  <div className="flex items-start">
+                    <div className="bg-gray-800 rounded-lg p-3 max-w-[80%]">
+                      <p className="text-gray-300">Can you create content for our LinkedIn page?</p>
+                    </div>
                   </div>
+
+                  <div className="flex items-start justify-end">
+                    <div className="bg-primary rounded-lg p-3 max-w-[80%]">
+                      <p className="text-white">I've analyzed your brand voice and target audience. Here's a LinkedIn post draft:</p>
+                      <p className="text-white mt-2 italic">"Struggling with managing client communications? Our new dashboard reduces response time by 65% on average. See how one agency went from overwhelmed to organized in just 3 days. [Link to case study]"</p>
+                      <p className="text-white mt-2">Would you like me to prepare a full week's content schedule?</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <input type="text" className="w-full bg-gray-800 text-white rounded-full px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ask your marketing assistant..." />
+                  <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary hover:text-primary/80">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
@@ -714,13 +643,13 @@ const Home = () => {
       </section>
 
       {/* Customer Data Platform Section */}
-      <section id="data-platform" className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-950">
+      <section id="data-platform" className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             {/* Left - Platform Visualization */}
             <div className="lg:w-1/2">
               <div className="relative rounded-xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/30 to-[#14b8a6]/30 z-0"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 z-0"></div>
                 <div className="relative bg-white dark:bg-gray-800 p-6 z-10">
                   {/* Platform Header */}
                   <div className="mb-6">
@@ -747,16 +676,16 @@ const Home = () => {
                         <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 dark:bg-gray-700 transform -translate-y-1/2 z-0"></div>
                         
                         {/* Journey Steps */}
-                        <div className="absolute top-1/2 left-[10%] w-6 h-6 bg-blue-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">1</div>
+                        <div className="absolute top-1/2 left-[10%] w-6 h-6 bg-primary rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">1</div>
                         <div className="absolute top-0 left-[10%] text-xs font-medium dark:text-gray-300 transform -translate-x-1/2">First Visit</div>
                         
-                        <div className="absolute top-1/2 left-[30%] w-6 h-6 bg-blue-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">2</div>
+                        <div className="absolute top-1/2 left-[30%] w-6 h-6 bg-primary rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">2</div>
                         <div className="absolute top-0 left-[30%] text-xs font-medium dark:text-gray-300 transform -translate-x-1/2">Email Signup</div>
                         
-                        <div className="absolute top-1/2 left-[50%] w-6 h-6 bg-blue-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">3</div>
+                        <div className="absolute top-1/2 left-[50%] w-6 h-6 bg-primary rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">3</div>
                         <div className="absolute top-0 left-[50%] text-xs font-medium dark:text-gray-300 transform -translate-x-1/2">Product Demo</div>
                         
-                        <div className="absolute top-1/2 left-[70%] w-6 h-6 bg-blue-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">4</div>
+                        <div className="absolute top-1/2 left-[70%] w-6 h-6 bg-primary rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">4</div>
                         <div className="absolute top-0 left-[70%] text-xs font-medium dark:text-gray-300 transform -translate-x-1/2">Purchase</div>
                         
                         <div className="absolute top-1/2 left-[90%] w-6 h-6 bg-green-500 rounded-full transform -translate-y-1/2 z-10 flex items-center justify-center text-white text-xs">5</div>
@@ -770,7 +699,7 @@ const Home = () => {
                     <div className="bg-slate-100 dark:bg-gray-900 p-3 rounded-lg">
                       <div className="text-xs font-semibold mb-2 text-gray-700 dark:text-gray-300">Website Data</div>
                       <div className="flex items-center text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                         </svg>
                         <span className="dark:text-white">352 events</span>
@@ -780,7 +709,7 @@ const Home = () => {
                     <div className="bg-slate-100 dark:bg-gray-900 p-3 rounded-lg">
                       <div className="text-xs font-semibold mb-2 text-gray-700 dark:text-gray-300">Email Stats</div>
                       <div className="flex items-center text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         <span className="dark:text-white">24 opens</span>
@@ -790,7 +719,7 @@ const Home = () => {
                     <div className="bg-slate-100 dark:bg-gray-900 p-3 rounded-lg">
                       <div className="text-xs font-semibold mb-2 text-gray-700 dark:text-gray-300">Ad Platform</div>
                       <div className="flex items-center text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                         </svg>
                         <span className="dark:text-white">8 clicks</span>
@@ -809,7 +738,7 @@ const Home = () => {
             
             {/* Right content */}
             <div className="lg:w-1/2 space-y-6">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-[#0ea5e9]/20 text-[#0ea5e9] text-sm font-medium">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium">
                 Unified Data
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
@@ -821,8 +750,8 @@ const Home = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#0ea5e9]/20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#0ea5e9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                     </svg>
                   </div>
@@ -833,8 +762,8 @@ const Home = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#0ea5e9]/20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#0ea5e9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
@@ -845,8 +774,8 @@ const Home = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#0ea5e9]/20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#0ea5e9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                     </svg>
                   </div>
@@ -857,8 +786,8 @@ const Home = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#0ea5e9]/20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#0ea5e9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                     </svg>
                   </div>
@@ -869,7 +798,7 @@ const Home = () => {
                 </div>
               </div>
               
-              <Button className="bg-gradient-to-r from-[#0ea5e9] to-[#14b8a6] text-white hover:shadow-lg hover:shadow-[#0ea5e9]/30 transition-all duration-300 rounded-lg px-6 py-3 mt-4">
+              <Button className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 rounded-lg px-6 py-3 mt-4">
                 Explore the Data Platform
               </Button>
             </div>
@@ -882,401 +811,410 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Proven Process</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We follow a systematic approach to help you achieve sustainable growth and transform your business.
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              We follow a systematic approach to ensure your marketing success. Here's how we work with you.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <div className="bg-white rounded-lg shadow p-8 relative">
-              <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#0f172a] text-white flex items-center justify-center text-xl font-bold">1</div>
-              <h3 className="text-xl font-bold mb-3 mt-4">Assess</h3>
-              <p className="text-gray-600">
-                We conduct a comprehensive review of your business to identify strengths, weaknesses, and growth opportunities.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="bg-white rounded-lg shadow p-8 relative">
-              <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#0f172a] text-white flex items-center justify-center text-xl font-bold">2</div>
-              <h3 className="text-xl font-bold mb-3 mt-4">Strategize</h3>
-              <p className="text-gray-600">
-                Together, we develop a customized growth roadmap with clear milestones and actionable steps.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="bg-white rounded-lg shadow p-8 relative">
-              <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#0f172a] text-white flex items-center justify-center text-xl font-bold">3</div>
-              <h3 className="text-xl font-bold mb-3 mt-4">Implement</h3>
-              <p className="text-gray-600">
-                We help you execute the plan, providing hands-on support and guidance every step of the way.
-              </p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="bg-white rounded-lg shadow p-8 relative">
-              <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#0f172a] text-white flex items-center justify-center text-xl font-bold">4</div>
-              <h3 className="text-xl font-bold mb-3 mt-4">Measure</h3>
-              <p className="text-gray-600">
-                We track key performance indicators to ensure your business is making progress toward its goals.
-              </p>
-            </div>
-
-            {/* Step 5 */}
-            <div className="bg-white rounded-lg shadow p-8 relative">
-              <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#0f172a] text-white flex items-center justify-center text-xl font-bold">5</div>
-              <h3 className="text-xl font-bold mb-3 mt-4">Optimize</h3>
-              <p className="text-gray-600">
-                Based on data and feedback, we refine strategies and processes to improve results over time.
-              </p>
-            </div>
-
-            {/* Step 6 */}
-            <div className="bg-white rounded-lg shadow p-8 relative">
-              <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-[#0f172a] text-white flex items-center justify-center text-xl font-bold">6</div>
-              <h3 className="text-xl font-bold mb-3 mt-4">Scale</h3>
-              <p className="text-gray-600">
-                With proven systems in place, we help you expand your business and achieve sustainable long-term growth.
-              </p>
+          
+          <div className="relative">
+            {/* Process Timeline */}
+            <div className="hidden md:block h-1 bg-gray-200 absolute top-16 left-0 right-0 z-0"></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+              {/* Step 1 */}
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mb-4">
+                  <span className="font-bold">1</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Discovery</h3>
+                <p className="text-foreground/70 text-center">
+                  We learn about your business, goals, and target audience to create a tailored strategy.
+                </p>
+              </div>
+              
+              {/* Step 2 */}
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mb-4">
+                  <span className="font-bold">2</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Strategy</h3>
+                <p className="text-foreground/70 text-center">
+                  We develop a comprehensive marketing plan aligned with your business objectives.
+                </p>
+              </div>
+              
+              {/* Step 3 */}
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mb-4">
+                  <span className="font-bold">3</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Execution</h3>
+                <p className="text-foreground/70 text-center">
+                  We implement the strategy with precision and attention to detail.
+                </p>
+              </div>
+              
+              {/* Step 4 */}
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mb-4">
+                  <span className="font-bold">4</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">Optimization</h3>
+                <p className="text-foreground/70 text-center">
+                  We continuously monitor and refine the strategy to maximize results.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20">
+      <section id="about" className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                alt="Upscalable team members" 
-                className="rounded-lg shadow-xl" 
-              />
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">About Upscalable</h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Upscalable was founded by experienced entrepreneurs who have built and scaled multiple successful businesses. We understand the challenges you face because we've been there ourselves.
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+                About Us
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">We Help Businesses Grow Through Strategic Marketing</h2>
+              <p className="text-foreground/70 mb-6">
+                At Upscalable, we're passionate about helping businesses reach their full potential through innovative marketing strategies. With our team of experienced professionals and cutting-edge technology, we deliver exceptional results for our clients.
               </p>
-              <p className="text-lg text-gray-600 mb-6">
-                Our mission is to help business owners achieve sustainable growth without the stress and overwhelm that often comes with scaling. We combine proven frameworks with practical execution to deliver real results.
-              </p>
-              <div className="grid grid-cols-2 gap-6 mb-6">
-                <div>
-                  <div className="text-3xl font-bold text-[#0f172a]">200+</div>
-                  <p className="text-gray-600">Businesses Transformed</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>10+ years of experience</span>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-[#0f172a]">$50M+</div>
-                  <p className="text-gray-600">Revenue Generated</p>
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>500+ satisfied clients</span>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-[#0f172a]">15+</div>
-                  <p className="text-gray-600">Years of Experience</p>
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>50+ marketing experts</span>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-[#0f172a]">98%</div>
-                  <p className="text-gray-600">Client Satisfaction</p>
+                <div className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Award-winning agency</span>
                 </div>
               </div>
-              <Button className="bg-[#0f172a] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#1e293b] transition-colors">
-                Meet Our Team
+              
+              <Button className="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-lg">
+                Learn More About Us
               </Button>
+            </div>
+            
+            <div className="lg:w-1/2">
+              <div className="relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
+                <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
+                    alt="Our team working together" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-[#0f172a] text-white">
+      <section id="testimonials" className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              Don't just take our word for it. Hear from business owners who have transformed their companies with our help.
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+              Client Success Stories
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">What Our Clients Say</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Don't just take our word for it. Here's what some of our clients have to say about working with us.
             </p>
           </div>
-
-          <div className="testimonial-slider">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Testimonial 1 */}
-              <div className="testimonial-card bg-[#1e293b] rounded-lg p-8">
-                <div className="flex items-center mb-4">
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+              <div className="flex items-center mb-4">
+                <div className="text-amber-400 flex">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
-                </div>
-                <p className="mb-6 text-gray-300">
-                  "Working with Upscalable transformed our business. Their strategic guidance helped us double our revenue in just 9 months while building systems that reduced our workload."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gray-400 rounded-full mr-4"></div>
-                  <div>
-                    <h4 className="font-semibold">Sarah Johnson</h4>
-                    <p className="text-sm text-gray-300">CEO, TechStart Inc.</p>
-                  </div>
                 </div>
               </div>
-
-              {/* Testimonial 2 */}
-              <div className="testimonial-card bg-[#1e293b] rounded-lg p-8">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="mb-6 text-gray-300">
-                  "The marketing optimization strategy Upscalable created for us reduced our customer acquisition cost by 40% while increasing conversion rates. The ROI has been phenomenal."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gray-400 rounded-full mr-4"></div>
-                  <div>
-                    <h4 className="font-semibold">Michael Chen</h4>
-                    <p className="text-sm text-gray-300">Founder, Growth Solutions</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Testimonial 3 */}
-              <div className="testimonial-card bg-[#1e293b] rounded-lg p-8">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="mb-6 text-gray-300">
-                  "The team development program Upscalable implemented has been a game-changer. Our team is more aligned, productive, and motivated, which has directly impacted our bottom line."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gray-400 rounded-full mr-4"></div>
-                  <div>
-                    <h4 className="font-semibold">Jessica Martinez</h4>
-                    <p className="text-sm text-gray-300">COO, Service Solutions Ltd.</p>
-                  </div>
+              
+              <p className="text-foreground/80 mb-6">
+                "Working with Upscalable has been a game-changer for our business. Their strategic approach to marketing has helped us double our leads and increase conversions by 35% in just three months."
+              </p>
+              
+              <div className="flex items-center">
+                <div className="w-12 h-12 rounded-full bg-gray-200 mr-4"></div>
+                <div>
+                  <h4 className="font-semibold">Sarah Johnson</h4>
+                  <p className="text-sm text-foreground/60">CEO, TechStart Inc.</p>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="mt-12 text-center">
-            <Button className="bg-white text-[#0f172a] px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">
-              Read More Success Stories
-            </Button>
+            
+            {/* Testimonial 2 */}
+            <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+              <div className="flex items-center mb-4">
+                <div className="text-amber-400 flex">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              
+              <p className="text-foreground/80 mb-6">
+                "The team at Upscalable truly understands our industry and has created a marketing strategy that sets us apart from our competitors. Their data-driven approach has been invaluable to our success."
+              </p>
+              
+              <div className="flex items-center">
+                <div className="w-12 h-12 rounded-full bg-gray-200 mr-4"></div>
+                <div>
+                  <h4 className="font-semibold">Michael Rodriguez</h4>
+                  <p className="text-sm text-foreground/60">Marketing Director, GrowthLab</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Testimonial 3 */}
+            <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+              <div className="flex items-center mb-4">
+                <div className="text-amber-400 flex">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              
+              <p className="text-foreground/80 mb-6">
+                "We've worked with several marketing agencies in the past, but none have delivered results like Upscalable. Their holistic approach to marketing has transformed our online presence and boosted our sales."
+              </p>
+              
+              <div className="flex items-center">
+                <div className="w-12 h-12 rounded-full bg-gray-200 mr-4"></div>
+                <div>
+                  <h4 className="font-semibold">Emily Chen</h4>
+                  <p className="text-sm text-foreground/60">Founder, StyleHouse</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20">
+      <section id="faq" className="py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Get answers to common questions about our services and approach to business growth.
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+              FAQ
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Frequently Asked Questions</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Find answers to common questions about our marketing services and how we can help your business grow.
             </p>
           </div>
-
-          <Accordion>
-            <AccordionItem title="Who is Upscalable for?" defaultOpen>
-              <p className="text-gray-600">
-                Upscalable is designed for established businesses with $500K-$10M in annual revenue that are looking to scale strategically. We work with service providers, e-commerce businesses, SaaS companies, and other B2B and B2C ventures that are ready for the next level of growth.
-              </p>
-            </AccordionItem>
-
-            <AccordionItem title="How long does it take to see results?">
-              <p className="text-gray-600">
-                Most clients begin to see measurable improvements within the first 30-60 days of working with us. However, significant business transformation typically occurs over a 6-12 month period as we implement systems, optimize processes, and build team capabilities for sustainable growth.
-              </p>
-            </AccordionItem>
-
-            <AccordionItem title="What makes Upscalable different from other consultants?">
-              <p className="text-gray-600">
-                Unlike traditional consultants who provide advice but leave implementation to you, we take a hands-on approach to help you execute the strategies we develop together. Our team has real-world experience building and scaling businesses, so we understand the practical challenges you face. We focus on measurable results and building sustainable systems rather than quick fixes.
-              </p>
-            </AccordionItem>
-
-            <AccordionItem title="What is your pricing structure?">
-              <p className="text-gray-600">
-                We offer several engagement models to suit different business needs and stages. These include project-based work, monthly retainers, and performance-based arrangements. Each engagement is customized based on your specific goals and requirements. We'll discuss pricing details during your initial strategy call after understanding your business needs.
-              </p>
-            </AccordionItem>
-
-            <AccordionItem title="How do we get started?">
-              <p className="text-gray-600">
-                The process begins with a free strategy call where we'll discuss your business, goals, and challenges. If there's a good fit, we'll conduct a comprehensive business assessment and develop a customized growth plan. From there, we'll work together to implement the strategies and systems needed to achieve your goals.
-              </p>
-            </AccordionItem>
-          </Accordion>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-[#0f172a] text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Scale Your Business?</h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Book a free strategy call to discuss your business goals and how we can help you achieve them.
-            </p>
-            <Button className="bg-white text-[#0f172a] px-8 py-6 rounded-md font-bold text-lg hover:bg-gray-100 transition-colors">
-              Schedule Your Free Strategy Call
-            </Button>
-            <p className="mt-6 text-gray-300">
-              No obligation. Limited spots available each month.
-            </p>
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion className="space-y-4">
+              <AccordionItem title="What makes your marketing agency different?" defaultOpen>
+                <p className="text-foreground/70 mb-4">
+                  We combine cutting-edge technology with strategic expertise to deliver measurable results. Our unique approach focuses on data-driven decision-making, personalized strategies tailored to your specific business needs, and continuous optimization to maximize your ROI.
+                </p>
+              </AccordionItem>
+              
+              <AccordionItem title="How long does it take to see results?">
+                <p className="text-foreground/70 mb-4">
+                  The timeline for results varies based on factors such as your industry, competition, current online presence, and the specific marketing channels we're leveraging. Some clients see initial results within a few weeks, while more competitive industries might take 3-6 months to see significant traction. We'll provide realistic timelines and regular progress updates throughout our partnership.
+                </p>
+              </AccordionItem>
+              
+              <AccordionItem title="Do you offer customized marketing packages?">
+                <p className="text-foreground/70 mb-4">
+                  Absolutely! We don't believe in one-size-fits-all solutions. After a thorough analysis of your business goals, target audience, and competitive landscape, we create a customized marketing strategy designed to address your specific needs and challenges.
+                </p>
+              </AccordionItem>
+              
+              <AccordionItem title="How do you measure the success of your marketing campaigns?">
+                <p className="text-foreground/70 mb-4">
+                  We establish clear KPIs (Key Performance Indicators) at the beginning of our partnership based on your business objectives. These might include metrics such as website traffic, conversion rates, lead generation, social media engagement, or ROI. We provide comprehensive reporting and analytics to track progress and measure success.
+                </p>
+              </AccordionItem>
+              
+              <AccordionItem title="Can you work with our in-house marketing team?">
+                <p className="text-foreground/70 mb-4">
+                  Yes, we frequently collaborate with in-house marketing teams. We can either complement your existing team's efforts by providing specialized expertise in specific areas, or we can take on full management of your marketing initiatives while maintaining close communication with your internal team.
+                </p>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-accent/5 -z-10"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-5 -z-10"></div>
+        
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/2 mb-10 md:mb-0 md:pr-12">
-              <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Have questions about our services or want to learn more? Reach out to our team and we'll get back to you promptly.
-              </p>
+          <div className="flex flex-col lg:flex-row gap-16">
+            <div className="lg:w-1/2 space-y-8">
+              <div>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+                  Get In Touch
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Ready to Grow Your Business?</h2>
+                <p className="text-foreground/70">
+                  Contact us today to discuss how our marketing services can help you achieve your business goals. We're here to answer any questions you might have.
+                </p>
+              </div>
               
-              <div className="flex items-start mb-6">
-                <div className="mr-4 mt-1 text-[#0f172a]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Phone</h3>
+                    <p className="text-foreground/70">(123) 456-7890</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-gray-600">(555) 123-4567</p>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Email</h3>
+                    <p className="text-foreground/70">info@upscalable.com</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Address</h3>
+                    <p className="text-foreground/70">123 Marketing St, Digital City, DC 12345</p>
+                  </div>
                 </div>
               </div>
               
-              <div className="flex items-start mb-6">
-                <div className="mr-4 mt-1 text-[#0f172a]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-gray-600">info@upscalable.co</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start mb-6">
-                <div className="mr-4 mt-1 text-[#0f172a]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Address</h3>
-                  <p className="text-gray-600">123 Growth Street, Suite 100<br />San Francisco, CA 94103</p>
-                </div>
-              </div>
-              
-              <div className="flex space-x-4 mt-8">
-                <a href="#" className="bg-gray-200 hover:bg-gray-300 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="text-[#0f172a]" viewBox="0 0 16 16">
-                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
                   </svg>
                 </a>
-                <a href="#" className="bg-gray-200 hover:bg-gray-300 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="text-[#0f172a]" viewBox="0 0 16 16">
-                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                <a href="#" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z" />
                   </svg>
                 </a>
-                <a href="#" className="bg-gray-200 hover:bg-gray-300 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="text-[#0f172a]" viewBox="0 0 16 16">
-                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                <a href="#" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z" />
                   </svg>
                 </a>
-                <a href="#" className="bg-gray-200 hover:bg-gray-300 transition-colors w-10 h-10 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="text-[#0f172a]" viewBox="0 0 16 16">
-                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                <a href="#" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.441 16.892c-2.102.144-6.784.144-8.883 0-2.276-.156-2.541-1.27-2.558-4.892.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0 2.277.156 2.541 1.27 2.559 4.892-.018 3.629-.285 4.736-2.559 4.892zm-6.441-7.234l4.917 2.338-4.917 2.346v-4.684z" />
                   </svg>
                 </a>
               </div>
             </div>
             
-            <div className="md:w-1/2">
-              <form className="bg-white p-8 rounded-lg shadow-lg" onSubmit={handleContactSubmit}>
-                <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
-                
-                <div className="mb-6">
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Your Name</label>
-                  <Input 
-                    type="text" 
-                    id="name" 
-                    name="name"
-                    value={contactForm.name}
-                    onChange={handleContactFormChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent" 
-                    placeholder="John Smith"
-                    required
-                  />
+            <div className="lg:w-1/2">
+              <div className="relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
+                <div className="relative bg-card p-8 rounded-2xl shadow-lg border border-card">
+                  <h3 className="text-2xl font-bold mb-6 text-card-foreground">Send Us a Message</h3>
+                  
+                  <form onSubmit={handleContactSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-card-foreground mb-2">
+                        Your Name
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={contactForm.name}
+                        onChange={handleContactChange}
+                        placeholder="John Doe"
+                        className="w-full bg-transparent"
+                        required
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-card-foreground mb-2">
+                        Email Address
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={contactForm.email}
+                        onChange={handleContactChange}
+                        placeholder="john@example.com"
+                        className="w-full bg-transparent"
+                        required
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-card-foreground mb-2">
+                        Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={contactForm.message}
+                        onChange={handleContactChange}
+                        placeholder="How can we help you?"
+                        className="w-full bg-transparent min-h-[120px]"
+                        required
+                      />
+                    </div>
+                    
+                    <Button type="submit" className="w-full bg-primary hover:bg-primary-light text-white">
+                      Send Message
+                    </Button>
+                  </form>
                 </div>
-                
-                <div className="mb-6">
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email Address</label>
-                  <Input 
-                    type="email" 
-                    id="email" 
-                    name="email"
-                    value={contactForm.email}
-                    onChange={handleContactFormChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent" 
-                    placeholder="john@example.com"
-                    required
-                  />
-                </div>
-                
-                <div className="mb-6">
-                  <label htmlFor="company" className="block text-gray-700 font-medium mb-2">Company Name</label>
-                  <Input 
-                    type="text" 
-                    id="company" 
-                    name="company"
-                    value={contactForm.company}
-                    onChange={handleContactFormChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent" 
-                    placeholder="Your Company"
-                  />
-                </div>
-                
-                <div className="mb-6">
-                  <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Your Message</label>
-                  <Textarea 
-                    id="message" 
-                    name="message"
-                    value={contactForm.message}
-                    onChange={handleContactFormChange}
-                    rows={5} 
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent" 
-                    placeholder="How can we help you?"
-                    required
-                  />
-                </div>
-                
-                <Button type="submit" className="w-full bg-[#0f172a] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#1e293b] transition-colors">
-                  Send Message
-                </Button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
-};
-
-export default Home;
+}
