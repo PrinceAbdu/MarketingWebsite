@@ -1409,6 +1409,489 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Social Media Growth Services Section */}
+      <section id="social-growth" className="py-24 relative overflow-hidden bg-gradient-to-tr from-[#833ab4]/10 via-[#fd1d1d]/10 to-[#fcb045]/10">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        {/* Decorative elements */}
+        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#833ab4]/20 rounded-full filter blur-3xl opacity-30 animate-blob"></div>
+        <div className="absolute top-16 -right-20 w-60 h-60 bg-[#fd1d1d]/20 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-[#833ab4]/20 to-[#fd1d1d]/20 text-transparent bg-clip-text bg-gradient-to-r from-[#833ab4] to-[#fd1d1d] text-sm font-medium mb-4">
+              Social Media Growth
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Boost Your Social Media Presence</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Accelerate your social media growth with our premium engagement services. Get real followers, likes, and comments to increase your brand's credibility and reach.
+            </p>
+          </div>
+          
+          {/* Social Media Platforms */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Instagram Card */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#833ab4] to-[#fd1d1d] rounded-xl blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 transition-all duration-300 group-hover:translate-y-[-5px] h-full">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Instagram Growth</h3>
+                </div>
+                
+                {/* Service Options */}
+                <div className="space-y-5 mb-8">
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium">Premium Followers</span>
+                      <span className="text-primary font-semibold">From $9.99</span>
+                    </div>
+                    <p className="text-sm text-foreground/70">High-quality followers to boost your account credibility. Choose packages from 100 to 10,000 followers.</p>
+                  </div>
+                  
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium">Authentic Likes</span>
+                      <span className="text-primary font-semibold">From $4.99</span>
+                    </div>
+                    <p className="text-sm text-foreground/70">Increase engagement with real likes on your posts. Available for your latest or selected posts.</p>
+                  </div>
+                  
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium">Targeted Comments</span>
+                      <span className="text-primary font-semibold">From $12.99</span>
+                    </div>
+                    <p className="text-sm text-foreground/70">Custom, relevant comments to boost engagement and create authentic interactions.</p>
+                  </div>
+                </div>
+                
+                <Button className="w-full button-3d bg-gradient-to-r from-[#833ab4] to-[#fd1d1d] text-white border-0 hover:opacity-90">
+                  Boost Instagram Now
+                </Button>
+              </div>
+            </div>
+            
+            {/* TikTok Card */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00f2ea] to-[#ff0050] rounded-xl blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 transition-all duration-300 group-hover:translate-y-[-5px] h-full">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#00f2ea] to-[#ff0050] flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">TikTok Growth</h3>
+                </div>
+                
+                {/* Service Options */}
+                <div className="space-y-5 mb-8">
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium">TikTok Followers</span>
+                      <span className="text-primary font-semibold">From $14.99</span>
+                    </div>
+                    <p className="text-sm text-foreground/70">Grow your TikTok following with real accounts that enhance your profile credibility.</p>
+                  </div>
+                  
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium">Video Views</span>
+                      <span className="text-primary font-semibold">From $3.99</span>
+                    </div>
+                    <p className="text-sm text-foreground/70">Boost your video visibility with authentic views that help your content go viral.</p>
+                  </div>
+                  
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium">Engagement Package</span>
+                      <span className="text-primary font-semibold">From $19.99</span>
+                    </div>
+                    <p className="text-sm text-foreground/70">Complete package with likes, comments, shares, and saves to maximize algorithm favor.</p>
+                  </div>
+                </div>
+                
+                <Button className="w-full button-3d bg-gradient-to-r from-[#00f2ea] to-[#ff0050] text-white border-0 hover:opacity-90">
+                  Boost TikTok Now
+                </Button>
+              </div>
+            </div>
+            
+            {/* YouTube Card */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#FF0000] to-[#282828] rounded-xl blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 transition-all duration-300 group-hover:translate-y-[-5px] h-full">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-[#FF0000] flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">YouTube Growth</h3>
+                </div>
+                
+                {/* Service Options */}
+                <div className="space-y-5 mb-8">
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium">Subscribers</span>
+                      <span className="text-primary font-semibold">From $29.99</span>
+                    </div>
+                    <p className="text-sm text-foreground/70">Grow your channel with real subscribers to reach monetization requirements faster.</p>
+                  </div>
+                  
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium">Video Views</span>
+                      <span className="text-primary font-semibold">From $7.99</span>
+                    </div>
+                    <p className="text-sm text-foreground/70">Increase your video visibility with high-retention views that boost your channel ranking.</p>
+                  </div>
+                  
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium">Comments & Likes</span>
+                      <span className="text-primary font-semibold">From $16.99</span>
+                    </div>
+                    <p className="text-sm text-foreground/70">Enhance engagement with custom comments and likes that improve algorithm performance.</p>
+                  </div>
+                </div>
+                
+                <Button className="w-full button-3d bg-gradient-to-r from-[#FF0000] to-[#282828] text-white border-0 hover:opacity-90">
+                  Boost YouTube Now
+                </Button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Growth Strategy Bonus */}
+          <div className="relative mb-10 gradient-border">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <div className="md:w-2/3">
+                  <h3 className="text-xl font-bold mb-4 text-foreground">Free Social Media Growth Strategy</h3>
+                  <p className="text-foreground/70 mb-4">
+                    Get a complementary personalized growth strategy when you purchase any of our premium packages. Our experts will analyze your profile and provide actionable recommendations to maximize your social media presence.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Content optimization recommendations</span>
+                    </li>
+                    <li className="flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Best posting times for maximum engagement</span>
+                    </li>
+                    <li className="flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Profile optimization for better discoverability</span>
+                    </li>
+                  </ul>
+                  <Button className="bg-primary hover:bg-primary/90 text-white">
+                    Learn More
+                  </Button>
+                </div>
+                <div className="md:w-1/3">
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30"></div>
+                    <div className="relative bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+                      <div className="text-center">
+                        <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">+287%</span>
+                        <p className="text-foreground/70">Average growth rate for our clients</p>
+                      </div>
+                      <div className="h-px bg-gray-200 dark:bg-gray-700 my-4"></div>
+                      <div className="flex items-center justify-center space-x-2">
+                        <span className="w-3 h-3 rounded-full bg-primary"></span>
+                        <span className="text-sm text-foreground/70">Results within 24-48 hours</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Compliance Notice */}
+          <div className="text-center text-foreground/60 text-sm max-w-2xl mx-auto">
+            <p>Our services comply with social media platform terms of service. We never request passwords or access to your accounts. All engagement comes from real users and authentic accounts.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Advanced Social Media Analytics Dashboard */}
+      <section id="social-analytics" className="py-24 bg-white dark:bg-gray-950 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+              Performance Analytics
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Track Your Social Growth</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Our advanced analytics dashboard provides real-time insights into your social media performance across all platforms.
+            </p>
+          </div>
+          
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-xl opacity-30"></div>
+            <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 p-6 md:p-8 overflow-hidden">
+              {/* Dashboard Tabs */}
+              <div className="flex overflow-x-auto pb-4 mb-6 border-b border-gray-200 dark:border-gray-700 custom-scrollbar">
+                <div className="flex space-x-4">
+                  <button className="px-4 py-2 text-sm font-medium rounded-lg bg-primary text-white">Overview</button>
+                  <button className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-foreground/70">Instagram</button>
+                  <button className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-foreground/70">TikTok</button>
+                  <button className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-foreground/70">YouTube</button>
+                  <button className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-foreground/70">Twitter</button>
+                  <button className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-foreground/70">Facebook</button>
+                </div>
+              </div>
+              
+              {/* Main Dashboard Content */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Left Column - Growth Metrics */}
+                <div className="lg:col-span-2 space-y-6">
+                  {/* Header */}
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground">Growth Analytics</h3>
+                      <p className="text-sm text-foreground/60">Last 30 days</p>
+                    </div>
+                    <select className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-sm rounded-lg focus:ring-primary focus:border-primary py-2 px-3">
+                      <option>Last 30 days</option>
+                      <option>Last 90 days</option>
+                      <option>Last 6 months</option>
+                      <option>Last year</option>
+                    </select>
+                  </div>
+                  
+                  {/* Growth Chart */}
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 h-80">
+                    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg h-full flex items-center justify-center">
+                      {/* This would be a chart in a real application */}
+                      <div className="text-center">
+                        <p className="text-foreground font-semibold mb-2">Cross-Platform Growth Chart</p>
+                        <p className="text-foreground/70 text-sm">Visualization showing follower and engagement growth</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Platform Metrics */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                      <div className="flex items-center mb-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] flex items-center justify-center mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                          </svg>
+                        </div>
+                        <span className="font-medium text-foreground">Instagram</span>
+                      </div>
+                      <div className="text-2xl font-bold text-foreground mb-1">+1,257</div>
+                      <div className="flex items-center text-sm">
+                        <span className="text-green-500 flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                          </svg>
+                          24.5%
+                        </span>
+                        <span className="text-foreground/60 ml-2">vs. last month</span>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                      <div className="flex items-center mb-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#00f2ea] to-[#ff0050] flex items-center justify-center mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                          </svg>
+                        </div>
+                        <span className="font-medium text-foreground">TikTok</span>
+                      </div>
+                      <div className="text-2xl font-bold text-foreground mb-1">+3,842</div>
+                      <div className="flex items-center text-sm">
+                        <span className="text-green-500 flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                          </svg>
+                          67.8%
+                        </span>
+                        <span className="text-foreground/60 ml-2">vs. last month</span>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                      <div className="flex items-center mb-2">
+                        <div className="w-8 h-8 rounded-full bg-[#FF0000] flex items-center justify-center mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                          </svg>
+                        </div>
+                        <span className="font-medium text-foreground">YouTube</span>
+                      </div>
+                      <div className="text-2xl font-bold text-foreground mb-1">+743</div>
+                      <div className="flex items-center text-sm">
+                        <span className="text-green-500 flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                          </svg>
+                          18.3%
+                        </span>
+                        <span className="text-foreground/60 ml-2">vs. last month</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Right Column - Content Performance */}
+                <div className="space-y-6">
+                  <h3 className="text-lg font-bold text-foreground">Top Content Performance</h3>
+                  
+                  <div className="space-y-4">
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                      <div className="flex">
+                        <div className="w-16 h-16 bg-gray-200 dark:bg-gray-800 rounded-lg mr-3 flex-shrink-0"></div>
+                        <div className="flex-grow">
+                          <div className="flex justify-between mb-1">
+                            <span className="font-medium text-foreground">Product Launch Video</span>
+                            <div className="px-2 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 text-xs rounded-full">Instagram</div>
+                          </div>
+                          <p className="text-sm text-foreground/70 mb-2">2 days ago</p>
+                          <div className="flex space-x-3 text-sm">
+                            <div className="flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                              </svg>
+                              <span>2.8k</span>
+                            </div>
+                            <div className="flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
+                              </svg>
+                              <span>186</span>
+                            </div>
+                            <div className="flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                              </svg>
+                              <span>43.2k</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                      <div className="flex">
+                        <div className="w-16 h-16 bg-gray-200 dark:bg-gray-800 rounded-lg mr-3 flex-shrink-0"></div>
+                        <div className="flex-grow">
+                          <div className="flex justify-between mb-1">
+                            <span className="font-medium text-foreground">Behind the Scenes</span>
+                            <div className="px-2 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 text-xs rounded-full">TikTok</div>
+                          </div>
+                          <p className="text-sm text-foreground/70 mb-2">5 days ago</p>
+                          <div className="flex space-x-3 text-sm">
+                            <div className="flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                              </svg>
+                              <span>24.5k</span>
+                            </div>
+                            <div className="flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                              </svg>
+                              <span>3.7k</span>
+                            </div>
+                            <div className="flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+                              </svg>
+                              <span>2.1k</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                      <div className="flex">
+                        <div className="w-16 h-16 bg-gray-200 dark:bg-gray-800 rounded-lg mr-3 flex-shrink-0"></div>
+                        <div className="flex-grow">
+                          <div className="flex justify-between mb-1">
+                            <span className="font-medium text-foreground">Tutorial: Advanced Tips</span>
+                            <div className="px-2 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100 text-xs rounded-full">YouTube</div>
+                          </div>
+                          <p className="text-sm text-foreground/70 mb-2">1 week ago</p>
+                          <div className="flex space-x-3 text-sm">
+                            <div className="flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                              </svg>
+                              <span>8.3k</span>
+                            </div>
+                            <div className="flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                              </svg>
+                              <span>567</span>
+                            </div>
+                            <div className="flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
+                              </svg>
+                              <span>128</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-100 dark:border-gray-700">
+                    <h4 className="font-medium text-foreground mb-3">AI-Powered Recommendations</h4>
+                    <ul className="space-y-3 text-sm">
+                      <li className="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-foreground/70">Your Instagram engagement peaks between 6-8PM. Consider scheduling posts during this timeframe.</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-foreground/70">Video content is outperforming images by 43%. Focus on creating more video content.</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-foreground/70">Hashtag performance analysis suggests adding #marketingtips and #digitalstrategy to your content.</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section id="testimonials" className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
