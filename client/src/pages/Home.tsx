@@ -33,6 +33,21 @@ export default function Home() {
 
   return (
     <main className="flex flex-col min-h-screen">
+      {/* Video Hero Section */}
+      <div className="absolute top-0 left-0 w-full h-screen overflow-hidden -z-10">
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          className="absolute w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+        >
+          <source src="https://player.vimeo.com/external/370331493.sd.mp4?s=e90dcaba73c19e0e36f03406b47bbd6992dd6e1f&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      
       {/* Hero Section */}
       <section id="hero" className="relative min-h-screen flex items-center py-20">
         {/* Animated Background */}
@@ -2216,6 +2231,320 @@ export default function Home() {
               <Button className="mt-10 bg-gradient-to-r from-primary to-accent text-white font-semibold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
                 Get Full Access
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories/Case Studies */}
+      <section id="success-stories" className="py-24 relative overflow-hidden bg-gradient-to-tr from-blue-50 to-indigo-50 dark:from-gray-950 dark:to-gray-900">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 text-sm font-medium mb-4">
+              Success Stories
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Real Results For Real Clients</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              See the transformative impact our marketing strategies have had on businesses just like yours.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            {/* Case Study 1 */}
+            <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg group">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#ff6b6b] to-[#ffa07a]"></div>
+              
+              <div className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-xl font-bold text-gray-500 dark:text-gray-300">F</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground">FashionFusion</h3>
+                    <p className="text-foreground/60">E-commerce Apparel</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center text-amber-400">
+                    {Array(5).fill(0).map((_, i) => (
+                      <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  <p className="text-foreground/70 italic">
+                    "Within 3 months of implementing their social media strategy, our Instagram following grew by 350% and our conversion rate increased by 27%. The ROI has been exceptional."
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3">
+                      <p className="text-sm text-foreground/60 mb-1">Instagram Growth</p>
+                      <div className="flex items-center">
+                        <span className="text-2xl font-bold text-foreground">+350%</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3">
+                      <p className="text-sm text-foreground/60 mb-1">Revenue Increase</p>
+                      <div className="flex items-center">
+                        <span className="text-2xl font-bold text-foreground">+48%</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center text-sm">
+                      <span className="text-foreground/60 mr-2">Sarah Johnson, CEO</span>
+                      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" className="w-6 h-6 rounded-full" />
+                    </div>
+                    
+                    <Button variant="link" className="text-primary flex items-center p-0 hover:underline">
+                      Full Case Study
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Case Study 2 */}
+            <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg group">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#4facfe] to-[#00f2fe]"></div>
+              
+              <div className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-xl font-bold text-gray-500 dark:text-gray-300">T</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground">TechNow Solutions</h3>
+                    <p className="text-foreground/60">SaaS Platform</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center text-amber-400">
+                    {Array(5).fill(0).map((_, i) => (
+                      <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  <p className="text-foreground/70 italic">
+                    "Their lead generation strategy revolutionized our business. We went from 20 to 175 qualified leads per month, with a 32% lower cost per acquisition."
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3">
+                      <p className="text-sm text-foreground/60 mb-1">Lead Increase</p>
+                      <div className="flex items-center">
+                        <span className="text-2xl font-bold text-foreground">+775%</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3">
+                      <p className="text-sm text-foreground/60 mb-1">Cost Per Lead</p>
+                      <div className="flex items-center">
+                        <span className="text-2xl font-bold text-foreground">-32%</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M16 7a1 1 0 00-1-1H9.414l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 8H15a1 1 0 001-1z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center text-sm">
+                      <span className="text-foreground/60 mr-2">Michael Chen, CMO</span>
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" className="w-6 h-6 rounded-full" />
+                    </div>
+                    
+                    <Button variant="link" className="text-primary flex items-center p-0 hover:underline">
+                      Full Case Study
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Case Study 3 */}
+            <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg group">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#a18cd1] to-[#fbc2eb]"></div>
+              
+              <div className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-xl font-bold text-gray-500 dark:text-gray-300">G</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground">GreenLife Organics</h3>
+                    <p className="text-foreground/60">Health & Wellness Brand</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center text-amber-400">
+                    {Array(5).fill(0).map((_, i) => (
+                      <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  <p className="text-foreground/70 italic">
+                    "Our TikTok following went from 2,000 to over 500,000 in just 6 months with their strategy. Product sales increased by 215% and we secured three major retail partnerships."
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3">
+                      <p className="text-sm text-foreground/60 mb-1">TikTok Growth</p>
+                      <div className="flex items-center">
+                        <span className="text-2xl font-bold text-foreground">+24900%</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3">
+                      <p className="text-sm text-foreground/60 mb-1">Sales Increase</p>
+                      <div className="flex items-center">
+                        <span className="text-2xl font-bold text-foreground">+215%</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center text-sm">
+                      <span className="text-foreground/60 mr-2">Emily Parker, Founder</span>
+                      <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Emily Parker" className="w-6 h-6 rounded-full" />
+                    </div>
+                    
+                    <Button variant="link" className="text-primary flex items-center p-0 hover:underline">
+                      Full Case Study
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button className="bg-gradient-to-r from-primary to-accent text-white font-semibold px-8 py-3 rounded-lg hover:shadow-lg transition-all duration-300 button-3d">
+              View All Success Stories
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Global Clients Map Section */}
+      <section id="global-clients" className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+              Global Reach
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Trusted by Clients Worldwide</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Our marketing strategies have helped businesses achieve exceptional growth in over 40 countries across 6 continents.
+            </p>
+          </div>
+          
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-xl opacity-30"></div>
+            <div className="relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-xl p-8">
+              {/* World Map with Client Markers */}
+              <div className="aspect-[2/1] relative bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden mb-8">
+                {/* This would be an interactive map in a real implementation */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <p className="text-foreground/60 text-center">Interactive world map with client locations</p>
+                </div>
+                
+                {/* Sample client markers */}
+                <div className="absolute top-[30%] left-[20%] w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+                <div className="absolute top-[40%] left-[35%] w-3 h-3 bg-primary rounded-full animate-pulse animation-delay-200"></div>
+                <div className="absolute top-[25%] left-[48%] w-3 h-3 bg-primary rounded-full animate-pulse animation-delay-400"></div>
+                <div className="absolute top-[35%] left-[75%] w-3 h-3 bg-primary rounded-full animate-pulse animation-delay-600"></div>
+                <div className="absolute top-[60%] left-[85%] w-3 h-3 bg-primary rounded-full animate-pulse animation-delay-800"></div>
+                <div className="absolute top-[65%] left-[30%] w-3 h-3 bg-primary rounded-full animate-pulse animation-delay-1000"></div>
+              </div>
+              
+              {/* Metrics Row */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-foreground mb-2">40+</div>
+                  <p className="text-foreground/60">Countries</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-foreground mb-2">500+</div>
+                  <p className="text-foreground/60">Clients</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-foreground mb-2">98%</div>
+                  <p className="text-foreground/60">Satisfaction Rate</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-foreground mb-2">$100M+</div>
+                  <p className="text-foreground/60">Revenue Generated</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Client Logos */}
+          <div className="mt-16">
+            <p className="text-center text-foreground/60 mb-8">Trusted by innovative companies worldwide</p>
+            
+            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+              {/* These would be actual client logos in a real implementation */}
+              <div className="w-28 h-10 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-foreground/40">Logo 1</div>
+              <div className="w-28 h-10 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-foreground/40">Logo 2</div>
+              <div className="w-28 h-10 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-foreground/40">Logo 3</div>
+              <div className="w-28 h-10 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-foreground/40">Logo 4</div>
+              <div className="w-28 h-10 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-foreground/40">Logo 5</div>
+              <div className="w-28 h-10 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-foreground/40">Logo 6</div>
             </div>
           </div>
         </div>

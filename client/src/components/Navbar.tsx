@@ -55,6 +55,8 @@ const Navbar = () => {
     { href: "#social-growth", label: "Social Growth" },
     { href: "#social-analytics", label: "Social Analytics" },
     { href: "#marketing-chatbot", label: "AI Chat" },
+    { href: "#success-stories", label: "Success Stories" },
+    { href: "#global-clients", label: "Global Reach" },
     { href: "#process", label: "Our Process" },
     { href: "#about", label: "About Us" },
     { href: "#testimonials", label: "Testimonials" },
