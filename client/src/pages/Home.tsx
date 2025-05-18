@@ -2033,6 +2033,194 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Marketing AI Chatbot Section */}
+      <section id="marketing-chatbot" className="py-24 relative overflow-hidden bg-gradient-to-br from-black to-gray-900">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-grid-pattern"></div>
+          <div className="absolute h-full w-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent text-sm font-medium mb-4">
+              Marketing Assistant
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Get Expert Marketing Advice 24/7</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Our AI-powered marketing chatbot provides instant answers to your marketing questions. Try it now for free.
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur-lg opacity-20"></div>
+              <div className="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-800">
+                <div className="flex flex-col h-[600px]">
+                  {/* Chat Header */}
+                  <div className="bg-gray-800 p-4 border-b border-gray-700">
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-white">Marketing AI Assistant</h3>
+                        <div className="flex items-center text-green-400 text-xs">
+                          <span className="w-2 h-2 rounded-full bg-green-400 mr-1"></span>
+                          Online
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Chat Messages */}
+                  <div className="flex-grow p-4 overflow-y-auto custom-scrollbar space-y-6">
+                    {/* Assistant Message */}
+                    <div className="flex items-start">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center flex-shrink-0 mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <div className="bg-gray-800 rounded-lg rounded-tl-none p-4 max-w-[80%]">
+                        <p className="text-white">Hello! I'm your marketing assistant. How can I help with your marketing strategy today?</p>
+                      </div>
+                    </div>
+                    
+                    {/* User Message */}
+                    <div className="flex items-start justify-end">
+                      <div className="bg-primary/20 rounded-lg rounded-tr-none p-4 max-w-[80%]">
+                        <p className="text-white">I need help with social media marketing for my new ecommerce business. What platforms should I focus on?</p>
+                      </div>
+                      <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0 ml-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Assistant Message */}
+                    <div className="flex items-start">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center flex-shrink-0 mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <div className="bg-gray-800 rounded-lg rounded-tl-none p-4 max-w-[80%]">
+                        <p className="text-white">For an ecommerce business, I recommend focusing on these platforms:</p>
+                        <ul className="list-disc list-inside mt-2 space-y-1 text-white">
+                          <li><span className="font-semibold text-primary">Instagram:</span> Great for visual products with shopping features</li>
+                          <li><span className="font-semibold text-primary">Pinterest:</span> Excellent for driving traffic to your product pages</li>
+                          <li><span className="font-semibold text-primary">TikTok:</span> Ideal for reaching younger demographics with trending content</li>
+                          <li><span className="font-semibold text-primary">Facebook:</span> Still valuable for targeted advertising and demographics over 30</li>
+                        </ul>
+                        <p className="mt-2 text-white">I recommend starting with 2 platforms where your target audience is most active. Which product category are you selling?</p>
+                      </div>
+                    </div>
+                    
+                    {/* User Message */}
+                    <div className="flex items-start justify-end">
+                      <div className="bg-primary/20 rounded-lg rounded-tr-none p-4 max-w-[80%]">
+                        <p className="text-white">I'm selling eco-friendly home products. My target audience is mainly women aged 25-45.</p>
+                      </div>
+                      <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0 ml-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Assistant Message */}
+                    <div className="flex items-start">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center flex-shrink-0 mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <div className="bg-gray-800 rounded-lg rounded-tl-none p-4 max-w-[80%] space-y-3">
+                        <p className="text-white">Perfect! For eco-friendly home products targeting women 25-45, I strongly recommend:</p>
+                        
+                        <div className="bg-gray-700 rounded p-3">
+                          <p className="font-semibold text-white mb-1">Instagram + Pinterest Strategy</p>
+                          <p className="text-gray-300">These platforms are ideal for your audience and product type. Women in this age group are highly active on both, and the visual nature allows you to showcase your products beautifully.</p>
+                        </div>
+                        
+                        <p className="text-white">Content strategy recommendations:</p>
+                        <ul className="list-disc list-inside space-y-1 text-white">
+                          <li>Create lifestyle imagery showing products in use</li>
+                          <li>Highlight eco-friendly benefits visually</li>
+                          <li>Partner with micro-influencers in the sustainability space</li>
+                          <li>Use Instagram Shopping and Pinterest Product Pins</li>
+                          <li>Create educational content about sustainable living</li>
+                        </ul>
+                        
+                        <p className="text-white">Would you like me to provide a detailed 30-day content calendar for these platforms?</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Chat Input */}
+                  <div className="p-4 border-t border-gray-800 bg-gray-900">
+                    <div className="flex items-center">
+                      <input
+                        type="text"
+                        placeholder="Ask any marketing question..."
+                        className="flex-grow bg-gray-800 text-white rounded-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                      />
+                      <button className="ml-2 w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center mt-12">
+              <h3 className="text-2xl font-bold text-white mb-4">Why Use Our Marketing AI Assistant?</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-semibold text-white mb-2 text-center">Instant Answers</h4>
+                  <p className="text-gray-300 text-center">Get expert marketing advice 24/7 without waiting for human consultants.</p>
+                </div>
+                
+                <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-semibold text-white mb-2 text-center">Customized Strategies</h4>
+                  <p className="text-gray-300 text-center">Receive tailored marketing advice based on your specific business needs and goals.</p>
+                </div>
+                
+                <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-semibold text-white mb-2 text-center">Data-Backed Insights</h4>
+                  <p className="text-gray-300 text-center">Our AI is trained on the latest marketing trends and performance data across industries.</p>
+                </div>
+              </div>
+              
+              <Button className="mt-10 bg-gradient-to-r from-primary to-accent text-white font-semibold px-8 py-3 rounded-full hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
+                Get Full Access
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-accent/5 -z-10"></div>
